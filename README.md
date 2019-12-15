@@ -7,4 +7,8 @@
 4. Диаграммы переходов
 5. Сети Петри
 
+
+## Ссылки
+[Симуляция сети Петри](http://petri.hp102.ru/pnet.html)
+
 [ivtipm.github.io/ProcessCalculus](https://ivtipm.github.io/ProcessCalculus)
