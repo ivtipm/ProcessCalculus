@@ -14,7 +14,7 @@
 
 - Синзронизация с помощью ***мьютексов*** на примере потоков в С++ [examples/thread-sync1](https://github.com/ivtipm/ProcessCalculus/tree/master/examples/thread-sync1)
 
-- Синхронизация с помошью условных переменных (condation variables) на примере потоков в С++ [examples/condition_variables](https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables)
+- Синхронизация с помошью ***условных переменных (condation variables)*** на примере потоков в С++ [examples/condition_variables](https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables)
 
 ## Ссылки
 - Теория вычислительных процессов, методическое пособие, В. Т. Калайда, 2007 г, 130 с.
