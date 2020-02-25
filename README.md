@@ -3,11 +3,7 @@
 
 1. Верификация программ и контрактное программирование [PC_lec1.verifacation.pdf](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec1.verifacation.pdf).
 1. Стандартные схемы программ (https://cc.dvo.ru/docs/lectures-tvps/lecture02.pdf)
-1. Модели вычислительных процессов
-2. Взаимодействие процессов
-3. Асинхронные процессы
-4. Диаграммы переходов
-5. Сети Петри
+1. Сети Петри
 
 
 ## Ссылки
