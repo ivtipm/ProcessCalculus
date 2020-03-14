@@ -1,7 +1,7 @@
 #include <math.h>
 #include <iostream>
 
-#include <thread>
+#include <thread>  // ещё нужно подключить скомпилированый код библиотеки. см. pro файл: LIBS += -lpthread
 #include <future>
 
 // для предачи функции как параметра
