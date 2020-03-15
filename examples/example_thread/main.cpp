@@ -24,18 +24,18 @@ void foo(unsigned long n, char c){
     unsigned long d = n/10;
     double sum = 0;
     for (unsigned i = 0; i<n; i++){
-        sum += sin(i);
-        if (i%d==0) {cout << c;
-                     cout << flush;}}
+     sum += sin(i);
+     if (i%d==0) {cout << c;
+               cout << flush;}}
 }
 
 
 void bar(unsigned long n, double &sum){
     unsigned long d = n/10;
     for (unsigned i = 0; i<n; i++){
-        sum += sin(i);
-        if (i%d==0) {cout << '*';
-                     cout << flush;}}
+     sum += sin(i);
+     if (i%d==0) {cout << '*';
+        cout << flush;}}
 }
 
 
@@ -46,34 +46,55 @@ void bar(unsigned long n, double &sum){
 
 // Простой пример запуска функции в отдельном потоке
 void example1(){
-        auto t0 = chrono::system_clock::now(); // пзаомним текущее время, для вычисления времени работы
+    auto t0 = chrono::system_clock::now(); // пзаомним текущее время, для вычисления времени работы
 
-        // поток - это тоже класс std::thread
-        // первый параметр - фказатель на функцию
-        // остальные - параметры функции
+     // поток - это тоже класс std::thread
+     // первый параметр - фказатель на функцию
+     // остальные - параметры функции
 
-        // потоки запускаются сразу после создания объекта (если в конструктор был передан указатель на функцию)
-        // два вызова функции foo будут выполнены параллельно
-        std::thread th1(foo, N, '|');
-        std::thread th2(foo, N, '.');
+     // потоки запускаются сразу после создания объекта (если в конструктор был передан указатель на функцию)
+     // два вызова функции foo будут выполнены параллельно
+     std::thread th1(foo, N, '|');
+     std::thread th2(foo, N, '.');
 
 
-        // ожидание завершения первого, _затем_ второго потока
-        th1.join();
-        th2.join();
-        // см. также detach
+     // ожидание завершения первого, _затем_ второго потока
+     th1.join();
+     th2.join();
+     // см. также detach
 
-        // если не ожидать завершения потоков,
-        // то они могут быть завершены раньше времени автоматически
-        // в момент, когда завершится основной поток программы
+     // если не ожидать завершения потоков,
+     // то они могут быть завершены раньше времени автоматически
+     // в момент, когда завершится основной поток программы
 
-        auto t1 = chrono::system_clock::now();
-        cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
-                << "ms" <<endl;
+     auto t1 = chrono::system_clock::now();
+     cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
+          << "ms" <<endl;
 
-        cout << endl;
+     cout << endl;
 }
 
+
+// Плохой пример запуска потока
+void example1_1_bad(){
+     std::thread th1(foo, N, '|');
+     // почти наверняка текущая функция завершится раньше, чем функция потока
+     // при завещении текущей функции будет уничтожен объект th1,
+     // что приведёт к аварийному завершению потока: terminate called without an active exception
+}
+
+
+
+// Плохой пример запуска потока
+void example1_1_good(){
+     std::thread th1(foo, N, '|');
+     // отсоединение потока от объекта th1
+     // теперь уничтожение th1 не приведёт к аварийному завершению потока
+     th1.detach();
+     // но теперь нужно проследить чтобы основной поток не завершился раньше вновь созданного
+    cout << "is joinable: " << th1.joinable() << endl;
+     // https://en.cppreference.com/w/cpp/thread/thread/detach
+}
 
 
 // Пример 2: передача данных в поток по ссылке
@@ -92,7 +113,7 @@ void example2(){
     cout << endl << "sum = " << sum << endl;
     auto t1 = chrono::system_clock::now();
     cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
-         << "ms" <<endl;
+      << "ms" <<endl;
 }
 
 
@@ -101,9 +122,9 @@ float baz(unsigned long n){
     unsigned long d = n/10;
     float sum = 0;
     for (unsigned i = 0; i<n; i++){
-        sum += sin(i);
-        if (i%d==0) {cout << '.';
-                     cout << flush;}}
+     sum += sin(i);
+     if (i%d==0) {cout << '.';
+               cout << flush;}}
     return sum;
 }
 
@@ -126,7 +147,7 @@ void bar2(unsigned n, void(*callback)(float s)  ){
     // указатель на функцию можено передавать и через класс-обёртку std::function
     float sum = 0;
     for (unsigned i = 0; i<n; i++)
-        sum += sin(i);
+     sum += sin(i);
 
     callback(sum);
 }
@@ -155,11 +176,15 @@ void example4(){
 
 int main(){
 
+     cout << "supported number of threads: " << thread::hardware_concurrency() << endl;
 
-//    example1();  // Пример 1: запуск функции в отдельном потоке
+    example1();  // Пример 1: запуск функции в отдельном потоке
+//    example1_1_bad();  // Как не нужно создавать поток в локальной оласти видимости
+//    example1_1_good(); // Как нужно создавать поток в локальной области видимости
 //    example2();  // Пример 2: передача данных в поток по ссылке
 //    example3();  // Пример 3: получение данных из потока
-    example4();  // Пример 4: Вызов callback функции
+//    example4();  // Пример 4: Вызов callback функции
+
 
     return 0;
 }
@@ -172,3 +197,7 @@ int main(){
 // yield
 // get_id
 // sleep_for
+
+
+// не равмотренные темы:
+// использование функторов
