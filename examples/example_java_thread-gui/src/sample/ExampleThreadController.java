@@ -11,9 +11,10 @@ public class ExampleThreadController {
 
     @FXML Label status_label;
 
-
     private static int N = 100000000;
+    private Worker w = new Worker(N);
 
+    
     private static double thread_foo(int n){
         double result = 0.0;
         for (int i =0; i < n; i++){
@@ -25,7 +26,7 @@ public class ExampleThreadController {
 
     public void run_here(MouseEvent mouseEvent) {
         status_label.setText( "Вычисление...");   // это пользователь не увидит
-        Double res = thread_foo(N);
+        double res = thread_foo(N);
         status_label.setText( " Sum =  " + res);
     }
 
@@ -35,12 +36,20 @@ public class ExampleThreadController {
 
         // Запуск вычислений в отдельном потоке
         new Thread( () -> {
-            double res = thread_foo(N);
+            w.run();
+            double res = w.getResult();
 
             // Обновление данных из основного потока после завершения вычислений
             Platform.runLater(() -> {
-                status_label.setText( "Sum = " + res );
+                String note = "";
+                if (w.stop)
+                    note = "(stoped)";
+                status_label.setText( "Sum = " + res + " " + note);
             });
         }).start();
+    }
+
+    public void stop(MouseEvent mouseEvent) {
+        w.stop = true;
     }
 }

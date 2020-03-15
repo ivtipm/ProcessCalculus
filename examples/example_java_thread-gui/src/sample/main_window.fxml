@@ -40,6 +40,9 @@
 
        </GridPane>
 
+       <Button fx:id="btn_stop" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#stop" text="stop"
+               GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+
 
        <Label fx:id="status_label" GridPane.valignment="CENTER"  GridPane.halignment="CENTER" text="-" GridPane.rowIndex="1" />
 
