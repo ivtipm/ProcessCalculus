@@ -14,7 +14,7 @@ public class ExampleThreadController {
     private static int N = 100000000;
     private Worker w = new Worker(N);
 
-    
+
     private static double thread_foo(int n){
         double result = 0.0;
         for (int i =0; i < n; i++){
