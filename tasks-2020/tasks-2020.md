@@ -10,7 +10,7 @@
 ## Расписание и задания
 1. [март 27](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-mar-27.md) Мьютексы
 1. апрель 03 -- каникулы
-1. [апрель 10](#) Условыне переменные
+1. [апрель 10](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-apr-10.md) Условыне переменные
 1. [апрель 17]() OpenMP
 1. [апрель 24]() OpenMP
 1. [май 01]() MPI
