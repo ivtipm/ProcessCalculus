@@ -14,7 +14,7 @@
 1. [апрель 17](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-apr-17.md) OpenMP
 1. [апрель 24](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-apr-24.md) OpenMP
 1. [май 01]() Выходной
-1. [май 08]() 
-1. [май 15]()
+1. [май 08](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-may-8.md) OpenMP
+1. [май 15](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-may-15.md) MPI
 1. [май 22]()
 1. [май 29]()
