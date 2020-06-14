@@ -16,5 +16,6 @@
 1. [май 01]() Выходной
 1. [май 08](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-may-8.md) OpenMP
 1. [май 15](https://github.com/ivtipm/ProcessCalculus/blob/master/tasks-2020/tasks-2020-may-15.md) MPI
-1. [май 22]()
-1. [май 29]()
+1. [май 22 -- 7 недля курса ](https://www.coursera.org/learn/parallelnoye-programmirovaniye)
+1. [май 29 -- 8 неделя курса](https://www.coursera.org/learn/parallelnoye-programmirovaniye)
+1. [июнь 05 -- 9 неделя курса]( https://www.coursera.org/learn/parallelnoye-programmirovaniye)
