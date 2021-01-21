@@ -24,7 +24,7 @@ upd: 21 март.
     1. Процессы и потоки. Синхронизация потоков. Проблемы синронизации.
     1. OpenMP
     1. MPI
-
+    1. CUDA через pyTorch https://colab.research.google.com/drive/1qm3deqBHBP2gqRQ-WioyIiYD0I7scnhB?usp=sharing
 
 ## Примеры
 - Потоки в C++: создание потоков, передача параметров по ссылке, возвращение значение из потока, callback функции [examples/example_thread](https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread)
