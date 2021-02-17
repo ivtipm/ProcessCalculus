@@ -28,5 +28,5 @@
 - Слайды: https://github.com/VetrovSV/Programming/blob/master/Programming_03.pdf
 - Множества, Словари
 - Изменяемые и неизменяемые типы данных
-- массивы numpy
+- массивы numpy, инексация
 - установка пакетов
