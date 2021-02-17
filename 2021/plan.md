@@ -26,3 +26,7 @@
 ## Лекция 1
 - Списки в Python. Генераторы списков
 - Слайды: https://github.com/VetrovSV/Programming/blob/master/Programming_03.pdf
+- Множества, Словари
+- Изменяемые и неизменяемые типы данных
+- массивы numpy
+- установка пакетов
