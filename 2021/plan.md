@@ -25,3 +25,4 @@
 
 ## Лекция 1
 - Списки в Python. Генераторы списков
+- Слайды: https://github.com/VetrovSV/Programming/blob/master/Programming_03.pdf
