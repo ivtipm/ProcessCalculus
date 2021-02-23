@@ -5,11 +5,17 @@
     - Документирование функций. Анонимные функции. 
     - Классы.
     - matplotlib. seaborn
+    - Слайды: 
+        - https://github.com/ivtipm/computer-simulation/blob/master/Python_math.pdf
+        - https://github.com/ivtipm/computer-simulation/blob/master/Python_Data_visualization.pdf
  -  Верификация программ?
 
 ## Лекция 1
 - Списки в Python. Генераторы списков
-- Слайды: https://github.com/VetrovSV/Programming/blob/master/Programming_03.pdf
+- Слайды: 
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_03.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_04.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_07.pdf
 - Множества, Словари
 - Изменяемые и неизменяемые типы данных
 - массивы numpy, инексация
