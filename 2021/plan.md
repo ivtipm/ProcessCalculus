@@ -4,7 +4,7 @@
 - Верификация программ. Продолжение.
 - Контрактное программирование. 
 - https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec1.verifacation.pdf
-
+- Схемы программ: https://cc.dvo.ru/docs/lectures-tvps/lecture02.pdf
 
 ## Домашнее задание
 - конспект: 2+ примера функций (методов, классов) с контрактами. 
