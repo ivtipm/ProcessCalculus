@@ -2,6 +2,7 @@
 - 17(19) марта 
 - Вопросы по прошлым темам?
 - Сети Петри
+- https://cloud.smartdraw.com/editor.aspx?templateId=b8cb0c65-9ce3-493c-a7b6-57215b4e2406&flags=144
 
 
 ## Лекция 4
