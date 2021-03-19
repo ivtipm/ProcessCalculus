@@ -2,6 +2,7 @@
 - 17(19) марта 
 - Вопросы по прошлым темам?
 - Сети Петри
+- слайды: https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
 - Симуляция сети: http://petri.hp102.ru/pnet.html
 
 
