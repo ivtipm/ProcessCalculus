@@ -1,3 +1,15 @@
+## Лекция 6
+- 24 марта 
+- Вопросы по прошлым темам?
+- Сети Петри
+- слайды: https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
+- Симуляция сети: http://petri.hp102.ru/pnet.html
+
+
+### Домашнее задание
+- [сеть Петри](https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/%D0%97%D0%B0%D0%B4%D0%B0%D0%B8%D0%B5.%20%D0%A1%D0%B5%D1%82%D1%8C%20%D0%9F%D0%B5%D1%82%D1%80%D0%B8.pdf)
+
+
 ## Лекция 5
 - 17(19) марта 
 - Вопросы по прошлым темам?
