@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QThread>
+#include <thread>
 #include "worker.h"
 
 namespace Ui {
@@ -24,8 +25,11 @@ private slots:
     // запуск вычислений в отдельном потоке
     void on_pushButton_run_thread_clicked();
 
-    // метод обновляющий label на фрме
+    // метод обновляющий label на форме
     void update_result();
+
+
+    void on_pushButton_std_thread_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -34,6 +38,7 @@ private:
     QThread *th;
     // класс выполняющий отдельные вычисления
     Worker *worker;
+
 };
 
 #endif // MAINWINDOW_H

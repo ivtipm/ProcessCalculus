@@ -147,7 +147,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="pushButton_std_thread">
         <property name="text">
          <string>в отдельном потоке (std::thread)</string>
         </property>
@@ -170,7 +170,7 @@
      <x>0</x>
      <y>0</y>
      <width>720</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

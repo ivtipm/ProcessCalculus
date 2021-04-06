@@ -68,3 +68,7 @@ void MainWindow::update_result(){
      ui->label_result->setText( QString::number(worker->get_result()));
 }
 
+
+void MainWindow::on_pushButton_std_thread_clicked(){
+
+}
