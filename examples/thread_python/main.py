@@ -14,8 +14,12 @@ def thread_function(N):
     for i in range(N):
         sum += sin(i)
         if i%d == 0:
-            print('|', end='')
+            print('|', end='', flush=True)
 
+
+
+import time
+start_time = time.time()
 
 # создание объекта, отвечающего за управление потоком
 # args -- параметры, которые будет переданы в функцию потока
@@ -31,3 +35,5 @@ th1.join()
 
 print("Поток завершён")
 print(f"{sum:.6f}")
+
+print(f"затраченное время: {(time.time() - start_time):.2f} секунд")
