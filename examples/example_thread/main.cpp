@@ -29,19 +29,27 @@ void foo(unsigned long n, char c){
 }
 
 
-void bar(unsigned long n, double &sum){
+// плохой пример использования общей переменной
+void bar_not_safe1(unsigned long n, double &sum){
+
     unsigned long d = n/10;
     for (unsigned i = 0; i<n; i++){
-     sum += sin(i);
+     sum += sin(i);                                                                                 // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
      if (i%d==0) {cout << '*';
         cout << flush;}}
+}
+
+// плохой пример использования общей переменной
+void bar_not_safe2(unsigned long n, long long &sum){
+    unsigned long d = n/10;
+    for (unsigned i = 0; i<n; i++){
+     sum += 1;}                                                                                     // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
 }
 
 
 
 
-
- const unsigned long N = 300000000; // число слагаемых
+const unsigned long N = 300000000; // число слагаемых
 
 // Простой пример запуска функции в отдельном потоке
 void example1(){
@@ -84,7 +92,7 @@ void example1_1_bad(){
 
 
 
-// Плохой пример запуска потока
+// Хороший пример запуска потока
 void example1_1_good(){
      std::thread th1(foo, N, '|');
      // отсоединение потока от объекта th1
@@ -104,7 +112,7 @@ void example2(){
     // даже если передаётся ссылка.
     // Поэтому большие данные или данные, которые нужно изменить внутри функции
     // нужно передавать с помощью специальных типов cref или ref.
-    std::thread th3(bar, N, std::ref(sum));
+    std::thread th3(bar_not_safe1, N, std::ref(sum));
 
     // ...
 
@@ -115,8 +123,21 @@ void example2(){
       << "ms" <<endl;
 }
 
+// пример состояния гонки
+void example2_1(){
+    long long s;
+    std::thread th1(bar_del, 100000000, std::ref(s));
+    std::thread th2(bar_del, 100000000, std::ref(s));
+
+    // здесь вызывается join только для того,
+    // чтобы основной поток не завершился раньше вновь созданного
+    th1.join();
+    th2.join();
+    cout << s;
+}
 
 
+// функция потока, которая возвращает значение
 float baz(unsigned long n){
     unsigned long d = n/10;
     float sum = 0;
@@ -127,21 +148,21 @@ float baz(unsigned long n){
     return sum;
 }
 
+
 // пример 3: получение данных из потока
 void example3(){
 
     std::future< float > result;  // объект для хранения будущих данных
-
     result = std::async( baz, N );  // запуск функции в отдельном потоке
-
     // ...
-
     result.wait();  // ожидание завершения потока
-
     cout << "\nsum = " << result.get() << endl; // получение и вывод результата
-
 }
 
+
+// функция потока, которая вызывает другую функцию после завершения основной работы
+// в основном потоке больше не нужно ждать пока эта функция завершит вычисления, чтобы показать данные
+// вместо этого функция потока сама покажет данные, пока основной поток занят другими действями
 void bar2(unsigned n, void(*callback)(float s)  ){
     // указатель на функцию можено передавать и через класс-обёртку std::function
     float sum = 0;
@@ -152,7 +173,9 @@ void bar2(unsigned n, void(*callback)(float s)  ){
 }
 
 
+// используется как callback функция
 void bar2_done(float sum){
+    // cout потокобезопасен только на уровне символов
     cout << "sum = " << sum << endl;
 }
 
@@ -177,7 +200,7 @@ int main(){
 
      cout << "supported number of threads: " << thread::hardware_concurrency() << endl;
 
-    example1();  // Пример 1: запуск функции в отдельном потоке
+//    example1();  // Пример 1: запуск функции в отдельном потоке
 //    example1_1_bad();  // Как не нужно создавать поток в локальной оласти видимости
 //    example1_1_good(); // Как нужно создавать поток в локальной области видимости
 //    example2();  // Пример 2: передача данных в поток по ссылке
