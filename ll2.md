@@ -1,6 +1,8 @@
-# Лекция 8. || программирование
+# Лекция 8. || программирование (продолжение)
 
 ![](img/xkcd.webp)
+
+- слайды с прошлой лекции: https://github.com/ivtipm/ProcessCalculus/blob/master/PC.%20lec.%20parallel.pdf
 
 ## Повторение
 - Зачем?
