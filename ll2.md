@@ -54,6 +54,8 @@
       - эта функции будет доступен класс главного окна
       - такой подход использовался здесь: [examples/example_java_thread-gui](examples/example_java_thread-gui)
 
+### Aync\Await в C#
+https://habr.com/ru/post/470830/
 
 ### Примеры: сети Петри
   - https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_thread/main.cpp
