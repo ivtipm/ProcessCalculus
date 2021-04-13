@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cc57212-f1b6-4043-a4aa-ada2f815aa71" name="Default Changelist" comment="" />
+    <list default="true" id="3cc57212-f1b6-4043-a4aa-ada2f815aa71" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../example_qthread/mainwindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/mainwindow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example_qthread/mainwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/mainwindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example_qthread/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/mainwindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example_qthread/worker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/worker.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example_qthread/worker.h" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/worker.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../example_thread/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example_thread/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +30,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../example_java_thread-gui" />
   </component>
   <component name="RunManager">
@@ -47,11 +56,5 @@
       <updated>1582622569391</updated>
     </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="743" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1617715220080">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="743" y="310" width="424" height="484" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1617715220080" />
   </component>
 </project>

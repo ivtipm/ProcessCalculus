@@ -62,6 +62,8 @@ void MainWindow::on_pushButton_run_thread_clicked(){
 
     ui->label_result->setText("идут вычисления...");
     th->start();
+
+//    th->wait();
 }
 
 void MainWindow::update_result(){
@@ -71,4 +73,8 @@ void MainWindow::update_result(){
 
 void MainWindow::on_pushButton_std_thread_clicked(){
 
+}
+
+void MainWindow::on_pushButton_stop_clicked(){
+    this->worker->setStop(true);
 }

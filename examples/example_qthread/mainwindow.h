@@ -31,6 +31,8 @@ private slots:
 
     void on_pushButton_std_thread_clicked();
 
+    void on_pushButton_stop_clicked();
+
 private:
     Ui::MainWindow *ui;
 

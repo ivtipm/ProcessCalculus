@@ -45,7 +45,7 @@ void foo_sync(){
         shared_var++;
         
         // работа с переменной завершена, освободим
-        mtx.unlock();    
+        mtx.unlock();
     }
     
 }
@@ -59,8 +59,8 @@ int main()
     cout << "Starting " << Nth << " threads" << endl;
 
     for (unsigned i = 0; i < Nth; i++){
-//        threads_poll[i] = thread(foo_no_sync); // плохой пример: изменение общей переменной без синхронизации
-        threads_poll[i] = thread(foo_sync);      // хороший пример: изменение общей переменной с синхронизацией
+        threads_poll[i] = thread(foo_no_sync); // плохой пример: изменение общей переменной без синхронизации
+//        threads_poll[i] = thread(foo_sync);      // хороший пример: изменение общей переменной с синхронизацией
     }
 
     cout << "waiting for threads termination..." << endl;

@@ -7,6 +7,7 @@ class Worker : public QObject
 {
     Q_OBJECT
 
+    bool stop;          // при true поток останавливается
     unsigned long n;
     double result;
 
@@ -21,6 +22,8 @@ public:
     double get_result() const;
 
     ~Worker();
+
+    void setStop(bool value);
 
 signals:
     // сигнал, который будет вызыван в методе process
