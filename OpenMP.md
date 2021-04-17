@@ -10,6 +10,8 @@ OpenMP (Open Multi-Processing) — открытый стандарт для ра
 
 - Сильно упрощает создание потоков и распределение между ними вычислений.
 
+- Последняя версия (на апрель 2012) - 5.2.
+
 Вычисления распараллеливаются между несколькими потоками, включая основновной, master поток:
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Fork_join.svg/1280px-Fork_join.svg.png)
 
@@ -76,7 +78,7 @@ https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/m
 ```
 
 
-#### Директивы компилятора 
+#### Директивы компилятора
 For master and synchronization:
 
 `master` 	Specifies that only the master thread should execute a section of the program.
