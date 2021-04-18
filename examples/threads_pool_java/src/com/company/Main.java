@@ -24,7 +24,7 @@ public class Main {
 
         Random random = new Random();
         for (int i = 0; i < 15; i++) {      // задач больше чем потоков
-            MyTask t = new MyTask(random.nextInt(1000000)+100000);
+            MyTask t = new MyTask(random.nextInt(100000000)+100000);
 
             // передаём Задачу пулу потоков, он сам решит какому из потоков назначить выполнение Задачи
             Future<String> result = threads_pool.submit( t );

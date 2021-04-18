@@ -16,7 +16,7 @@ public class MyTask implements Callable<String> {
 
     public String call(){
         Double sum = 0.0;
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < this.n; i++) {
             sum += Math.tan( i/100.0 );
         }
         this.sum = sum;
