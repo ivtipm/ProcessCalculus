@@ -31,6 +31,16 @@
 - профилирование в PyCharm Professional: https://www.jetbrains.com/help/pycharm/profiler.html#work-with-profiling-results
 - профилирование в Visual Studio: https://docs.microsoft.com/ru-ru/visualstudio/profiling/beginners-guide-to-performance-profiling?view=vs-2019
 
+## Задержка обращения к памяти
+![](img/mem_hierarchy.png)
+
+- поиск данных в памяти происходит начиная с вершины пирамиды
+- если нужные данные в кэше отсутствуют, то они копируются туда из оперативной памяти
+- данные копируются блоками (например при обращении к одному элементу массива, могут быть скопированы сразу несколько соседних элементов)
+
+**Вопрос**\
+Почему при одинаковых вычислительных затратах два способа перемножения одних и тех же матриц в программе [examples/performance_and_mem.cpp](examples/performance_and_mem.cpp) занимают разное время?
+
 
 ## Многопоточное программирование: синхронизация
 

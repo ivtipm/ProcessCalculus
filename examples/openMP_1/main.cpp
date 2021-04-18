@@ -2,10 +2,17 @@
 #include <math.h>
 #include <vector>
 #include <chrono>
-#include <omp.h>
+#include <omp.h>        // Анализатор кода Qt Creator тут может выдавать ошибку, но всё на самом деле ок
 // см. также pro файл
 
 using namespace std;
+using chrono::system_clock;
+using Time = decltype ( chrono::system_clock::now() );
+
+void print_dt(Time t0){
+    auto t1 = system_clock::now();
+    cout << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" <<endl;}
+
 
 // простой пример распараллеливания кода
 void example1_hello_world(){
@@ -39,6 +46,8 @@ void example2_ll_for(){
 }
 
 
+
+
 // явное || разных блоков кода
 void example3_ll_sections(){
 
@@ -60,7 +69,7 @@ void example3_ll_sections(){
 }
 
 
-
+// синхронизация во время работы с перемнными
 void example4_shared_private_atomic_reduction(){
     double sum = 0.0;
 
@@ -109,60 +118,48 @@ void example4_shared_private_atomic_reduction(){
    // после завершения всех потоков выполнит указанное действие (+) для всех локальных копий
 }
 
-using vector_int = vector<int>;
 
-double sum_l(unsigned long n){
-    double s = 0;
-    for(unsigned long i=0; i<n; i++){
-        s += sin(i);
+// сравнение времени выполнения
+void example2_ll_for2(){
+    double sum = 0;
+    const unsigned long N = 1e8;
+
+    cout << "\nNo OpenMP:" << endl;
+    auto t0 = system_clock::now();
+    for (unsigned long i = 0; i< N; i++) {
+        sum += atan(i);
     }
+    cout << "   sum = " << sum << endl;
+    cout << "   "; print_dt(t0);
 
-    return s;
+
+    cout << "\nOpenMP:" << endl;
+    t0 = system_clock::now();
+
+    sum = 0;
+    #pragma omp parallel for reduction(+:sum)
+    for (unsigned long i = 0; i< N; i++) {
+        sum += atan(i);
+    }
+    cout << "   sum = " << sum << endl;
+    cout << "   "; print_dt(t0);
+
+
+
+
 }
 
 
-double sum_ll(unsigned long n){
-
-    double s = 0;
-    #pragma parallel omp for num_threads(6) // reduction(+:s)
-    for(unsigned long i=0; i<n; i++){
-        s += sin(i % 100);
-    }
-
-    return s;
-}
-
-
-void print_array(vector_int *v){
-    for(unsigned long i=0; i<v->size(); i++){
-        cout << v->at(i) << " ";
-    }
-}
 
 int main()
-{
+{   // максимальное эффективное число потоков для данного компьютера
     cout << "max threads: " << omp_get_max_threads() << endl;
 
 //    example1_hello_world();         // hello, || world!
 //    example2_ll_for();              // распараллеливание цикла
 //    example3_ll_sections();
 //    example4_shared_private_atomic_reduction();
-
-    const unsigned long N = 1e9/3;
-    auto t0 = chrono::system_clock::now();
-    sum_l(N);
-    auto t1 = chrono::system_clock::now();
-    cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
-              << "ms" <<endl;
-
-
-    t0 = chrono::system_clock::now();
-    sum_ll(N);
-    t1 = chrono::system_clock::now();
-    cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
-              << "ms" <<endl;
-
-//    print_array(v);
+    example2_ll_for2();              // сравнение после и || циклов
 
     return 0;
 }
