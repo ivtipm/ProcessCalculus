@@ -12,7 +12,9 @@ x=x*7;  // (3)
 - см. программу [examples/performance_and_mem.cpp](examples/performance_and_mem.cpp)
 - почему два варианта перемножения матриц выполняются за существенно различное время?
 
-OpenMP
+[OpenMP](../OpenMP.md)
+- Примеры: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/openMP_1
+
 
 ## Лекция 9
 Повторение материала:
@@ -40,7 +42,7 @@ OpenMP
 Решите сложную вычислительную задачу с помошью нескольких потоков
 - число потоков может быть произвольным
 - см. примеры задач в задании 1 здесь: https://github.com/ivtipm/ProcessCalculus/blob/master/PC.%20%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F.pdf
-
+ - О построении Множества Мандельброта: https://ischurov.github.io/mandelbrot.html 
 
 ## Лекция 8
 - [ll2.md](../ll2.md)
