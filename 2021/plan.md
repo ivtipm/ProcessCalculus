@@ -60,6 +60,10 @@ x=x*7;  // (3)
 - || программирование
 - слайды: https://github.com/ivtipm/ProcessCalculus/blob/master/PC.%20lec.%20parallel.pdf
 
+### Дополнительно
+- https://ru.wikipedia.org/wiki/Добровольные_вычисления
+- https://ru.wikipedia.org/wiki/BOINC
+
 
 ## Лекция 6
 - 24 марта
