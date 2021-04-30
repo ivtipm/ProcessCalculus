@@ -66,7 +66,7 @@ int main(){
 g++ main.cpp -fopenmp -o myprog
 ```
 - `-fopenmp` -- флаг: подключить OpenMP и другие нужные OpenMP библиотеки (*.lib или .a файлы).
--o myprog -- имя исполняемого файла -- `myprog`
+- `o myprog` -- имя исполняемого файла -- `myprog`
 
 
 **Включить поддержку OpenMP в IDE**
