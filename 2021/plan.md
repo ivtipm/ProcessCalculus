@@ -1,4 +1,6 @@
 ## Лекция 11
+- [OpenMP](OpenMP.md)
+
 
 #### Домашнее задание
 1. см. программу [examples/performance_and_mem.cpp](examples/performance_and_mem.cpp). Почему два варианта перемножения матриц выполняются за существенно различное время?
