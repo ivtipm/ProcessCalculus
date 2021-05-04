@@ -12,7 +12,7 @@ OpenMP (Open Multi-Processing) — открытый стандарт для ра
 
 - SPMD (Single Program Multiple Data) подход
 
-- Последняя версия (на апрель 2012) - 5.2.
+- Последняя версия (на апрель 2021) - 5.2.
 
 Вычисления распараллеливаются между несколькими потоками, включая основновной, master поток:
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Fork_join.svg/1280px-Fork_join.svg.png)
@@ -66,7 +66,7 @@ int main(){
 g++ main.cpp -fopenmp -o myprog
 ```
 - `-fopenmp` -- флаг: подключить OpenMP и другие нужные OpenMP библиотеки (*.lib или .a файлы).
--o myprog -- имя исполняемого файла -- `myprog`
+- `o myprog` -- имя исполняемого файла -- `myprog`
 
 
 **Включить поддержку OpenMP в IDE**
@@ -93,9 +93,6 @@ int value = 123;
   std::cout << value++ << std::endl;
 }
 ```
-
-Пример:
-https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/materials/Lecture_OpenMP_Summer2008_uL0moR8.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUKOEY5ZX6VXK3RWN%2F20210413%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210413T172319Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=b5212372826ad3e7512514259d3f4c53e88dd07edf1bc8d1cf796bc3b8b5abd8
 
 
 ### Директивы компилятора для || вычислений
@@ -258,5 +255,6 @@ https://docs.microsoft.com/ru-ru/cpp/parallel/openmp/reference/openmp-directives
 
 
 # Ссылки
+- Примеры: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/openMP_1
 - https://www.openmp.org//
 - https://www.coursera.org/learn/parallelnoye-programmirovaniye/home/welcome
