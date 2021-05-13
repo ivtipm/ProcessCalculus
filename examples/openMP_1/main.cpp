@@ -143,12 +143,79 @@ void example2_ll_for2(){
     }
     cout << "   sum = " << sum << endl;
     cout << "   "; print_dt(t0);
-
-
-
-
 }
 
+
+// возвращает true если число простое
+bool is_prime(unsigned n){
+    for (unsigned i=2; i<(int)sqrt(n); i++){
+        if (n % i == 0) return false;
+    } return true;
+}
+
+// Элемент списка
+struct Node{
+    int x;
+    bool is_prime;
+    Node* next; };
+
+void set_node_isprime(Node *node){
+    node->is_prime = is_prime(node->x);
+}
+
+// Задачи
+void example_tasks(){
+
+
+    Node *head;
+    head = new Node;
+    head->x = rand();
+
+    unsigned N = 1000000;
+    Node *node = head;
+    for (unsigned i =1; i <N; i++) {
+        Node *tmp = new Node;
+        tmp->x = rand();
+        node->next = tmp;
+        node = node->next;
+    }
+    node->next = nullptr;
+    node = head;
+
+//    while (node){
+//        cout << node->x << " ";
+//        node = node->next;
+//    }
+
+
+       cout << "threads: " << omp_get_num_threads() << endl;
+    double t0 = omp_get_wtime();
+    #pragma omp parallel threads(8);
+    {
+        cout << "threads: " << omp_get_num_threads() << endl;
+        #pragma omp single nowait
+        {
+        node = head;
+        while (node) {
+            #pragma omp task firstprivate( node )
+            {
+                set_node_isprime( node );
+            }
+            node = node->next;
+                    }
+        }
+    }
+    cout << "|| alg: " << omp_get_wtime() - t0 << " sec" << endl;
+
+
+    t0 = omp_get_wtime();
+    node = head;
+    while (node) {
+        set_node_isprime( node );
+        node = node->next;
+    }
+    cout << "-- alg: " << omp_get_wtime() - t0 << " sec" << endl;
+}
 
 
 int main()
@@ -159,8 +226,8 @@ int main()
 //    example2_ll_for();              // распараллеливание цикла
 //    example3_ll_sections();
 //    example4_shared_private_atomic_reduction();
-    example2_ll_for2();              // сравнение после и || циклов
-
+//    example2_ll_for2();              // сравнение после и || циклов
+    example_tasks();
     return 0;
 }
 
