@@ -1,5 +1,5 @@
 ## Лекция 11
-- [OpenMP](OpenMP.md)
+- [OpenMP](../OpenMP.md)
 
 
 #### Домашнее задание
