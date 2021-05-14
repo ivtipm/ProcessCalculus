@@ -98,7 +98,7 @@ mpicc\mpic++ -- обёртки над компиляторами C и C++.
 `mpi++ -compile_info`
 
 Коспиляция программы\
-```mpic++ main.cpp -o main```
+`mpic++ main.cpp -o main`\
 `-o main` -- указание имени выходного файла
 
 
@@ -122,7 +122,7 @@ Hello world from processor s-pc, rank 2 out of 5 processors
 
 Сообщения передаются через специальные буферы: буфер обмена, приёма, передачи.
 
-**Буфер** определяется:
+**Буфер**:
 - адрес начала буфера
 - число передаваемых элементов
 - тип пересылаемых элементов
@@ -131,9 +131,9 @@ Hello world from processor s-pc, rank 2 out of 5 processors
 Типы данных в MPI:
 https://www.mcs.anl.gov/research/projects/mpi/mpi-standard/mpi-report-2.0/node229.htm
 ```
-MPI datatype	C datatype	C++ datatype
-MPI::INT	signed int	signed int
-MPI::DOUBLE	double	double
+MPI datatype    C datatype    C++ datatype
+MPI::INT        signed int    signed int
+MPI::DOUBLE     double        double
 ...
 ```
 
@@ -148,7 +148,7 @@ MPI_Send(
 ```
 
 
-- `buf
+- `buf`
     initial address of send buffer (choice)
 - `count`
     number of elements in send buffer (nonnegative integer)
@@ -179,12 +179,13 @@ MPI_Recv(
 - `datatype`
     datatype of each receive buffer element (handle)
 - `source`
-    rank of source (integer)
+    rank of source (integer); MPI_ANY_SOURCE -- принимать от всех.
 - `tag`
-    message tag (integer)
+    message tag (integer); MPI_ANY_TAG -- принимать сообщения с любым идентификатором.
 - `comm`
     communicator (handle)
 
+Вызов функций -- блокирующий. Принимать сообщения можно от любого процесса, но отправлять только на конкретный.
 
 **Пример**
 ```C++
@@ -205,3 +206,6 @@ if (world_rank == 0) {
            number);
 }
 ```
+
+### Измерение времени
+`double MPI_Wtime()` -- возвращает время в секундах, прошедшее с некоторого момента в прошлом.
