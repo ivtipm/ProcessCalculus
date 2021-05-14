@@ -12,7 +12,7 @@ OpenMP (Open Multi-Processing) — открытый стандарт для ра
 
 - SPMD (Single Program Multiple Data) подход
 
-- Последняя версия (на апрель 2012) - 5.2.
+- Последняя версия (на апрель 2021) - 5.2.
 
 Вычисления распараллеливаются между несколькими потоками, включая основной (master) поток:
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Fork_join.svg/1280px-Fork_join.svg.png)
