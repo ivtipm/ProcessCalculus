@@ -228,14 +228,16 @@ c = a + b;
 [Пример](examples/auto_vectorization)
 
 Компиляция примера:
-- Вариант 1, без векторизации:
-   `g++ main.cpp -o main-no_vec`
 
-- Вариант 2, оптимизация (включая векторизацияю):
-   `g++ main.cpp -o main-vec -O3`
+| команда компиляции             | время выполнения программы |
+|--------------------------------|----------------------------|
+| `g++ main.cpp -o main-novec`     | 3536 ms                    |
+| `g++ main.cpp -o main-vec   -O3` | 1597 ms                    |
 
-![](img/gcc-ox.png)
-
+   Компиляция с отчётом о векторизации цислов:\
+   `g++ main.cpp -o main-vec -O3 -fopt-info-vec`\
+   Вывод:\
+   `main.cpp:21:27: optimized: loop vectorized using 16 byte vectors`
 
 
 Комнады компиляция приведены для linux, С++ компилятора GCC. В Windows имя исполняемого файла аналогичного компилятора отличается (см. MinGW)
@@ -247,7 +249,12 @@ c = a + b;
 - `-fopt-info-vec-note`       -- Detailed info about all loops and optimizations being done.
 - `-fopt-info-vec-all`        -- All previous options together.
 
+Опции оптимизации C++ компилятора GCC:\
+![](img/gcc-ox.png)
+
 https://stackoverflow.com/questions/29292818/how-to-vectorize-my-loop-with-g
+
+Документация об оптимизации GCC: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
 
 #### pragma ivdep, vector always
 ```#pragma ivdep```\
