@@ -1,4 +1,4 @@
- # OpenMP
+# OpenMP
 
 OpenMP (Open Multi-Processing) — открытый стандарт для распараллеливания программ на языках Си, Си++ и Фортран.
 
@@ -14,7 +14,7 @@ OpenMP (Open Multi-Processing) — открытый стандарт для ра
 
 - Последняя версия (на апрель 2012) - 5.2.
 
-Вычисления распараллеливаются между несколькими потоками, включая основновной, master поток:
+Вычисления распараллеливаются между несколькими потоками, включая основной (master) поток:
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Fork_join.svg/1280px-Fork_join.svg.png)
 
 Это fork-join подход к организации параллелизма.
@@ -23,12 +23,12 @@ OpenMP (Open Multi-Processing) — открытый стандарт для ра
 
 ## Устройство OpenMP
 
-OpenMP состоит из трёъ компонентов:
+OpenMP состоит из трёх компонентов:
 - директивы компилятора (`#pragma omp ...`)
 - переменные среды окружения (можно задавать в командной строке)\
-    например.
-    windows: `set OMP_NUM_THREADS = 8`\
-    linux: `export OMP_NUM_THREADS = 8`
+   например.
+   windows: `set OMP_NUM_THREADS = 8`\
+   linux: `export OMP_NUM_THREADS = 8`
 - вспомогательные (библиотечные) функции; описаны в omp.h
 
 
@@ -42,21 +42,21 @@ OpenMP состоит из трёъ компонентов:
 #pragma omp <directive-name> [опция1, опция2]
 ```
 
-Такая директива влияет на следюющей за ней оператор или блок операторов.
+Такая директива влияет на следующей за ней оператор или блок операторов.
 
 Пример. fork-join
 ```C++
 #include <omp.h>
 
 int main(){
-   // последовательный код
-   #pragma omp parallel
-      {
-     // параллельный код
-     }
   // последовательный код
+  #pragma omp parallel
+     {
+    // параллельный код
+    }
+ // последовательный код
 
-  return 0;}
+ return 0;}
 ```
 
 ### Компиляция программы
@@ -71,7 +71,7 @@ g++ main.cpp -fopenmp -o myprog
 
 **Включить поддержку OpenMP в IDE**
 - Qt Creator.
-  в pro файл добавить: `QMAKE_LFLAGS +=  -fopenmp`
+ в pro файл добавить: `QMAKE_LFLAGS +=  -fopenmp`
 - Vusial Studio. Свойства проекта > С\С++ > Все параметры > поддержка OpenMP
 
 
@@ -86,8 +86,8 @@ int value = 123;
 #
 #pragma omp parallel
 {
-  value++;
-  std::cout << value++ << std::endl;
+ value++;
+ std::cout << value++ << std::endl;
 }
 ```
 
@@ -109,12 +109,12 @@ https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/m
 #pragma omp parallel
 ```
 Требования к || учатску кода
-- один вход, один выход. Условные переходы из\в || учатска кода в последовательный запрещены.
+- один вход, один выход. Условные переходы из\в || участка кода в последовательный запрещены.
 
 - внутри || участка кода может быть вызвана функция
 
 Явное задание числа потоков \
-    ```... num_thread( 12 )```
+   ```... num_thread( 12 )```
 
 Задать число потоков можно с помощью:
 - переменной среды окрыжения `OMP_NUM_THREADS`. Это значение имеет низший приоритет.
@@ -139,56 +139,61 @@ https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/m
 #### single
 Задаёт участок кода, который будет выполнятся только одним потоком (не известно каким). single имеет смысл приводить только внутри блока кода parallel
 
-В конце single блока используется неявная *барьераная синхронизация* -- все потоки будут ждать
+В конце single блока используется неявная *барьерная синхронизация* -- все потоки будут ждать
 
 Опции:
 - `copyprivate( список переменных )`
-После заверешния, скопирует значения переменных в одноимённые частные переменные родительской параллельной области. Полезно использовать в середине || области, где встречаются вычисления, которые нельзя распараллелить.
+После завершения, скопирует значения переменных в одноимённые частные переменные родительской параллельной области. Полезно использовать в середине || области, где встречаются вычисления, которые нельзя распараллелить.
 
 - `nowait`
 
 
 #### master
-Выполнится главным потоком. В отличии от single нет будет неявной синзронизации потоков.
+Выполнится главным потоком. В отличии от single нет будет неявной синхронизации потоков.
 
-### Разделеное и совместное использование пермеременных
-- **Общие пепеременные** -- как глобальные переменные, доступны всем потокам. Все переменные, объявленные вне || области считаются общими. Исключения -- счётчики циклов.
+### Разделеное и совместное использование перемеренных
+- **Общие переменные** -- как глобальные переменные, доступны всем потокам. Все переменные, объявленные вне || области считаются общими. Исключения -- счётчики циклов.
 
 ```C++
 #pragma omp parallel shared(A, B, C)
 ```
 Не защищены от неопределённости параллелизма.
 
-- **Локальные пепеременные** -- у каждого потока своя копия переменной. Даже если переменная объявлена в общей области видимости. Начальное значение переменной не определено. Все переменнеы объявленные в || области считаются локальными.
+- **Локальные переменные** -- у каждого потока своя копия переменной. Даже если переменная объявлена в общей области видимости. Начальное значение переменной не определено. Все переменные объявленные в || области считаются локальными.
 ```C++
 int A = -1, b;
 #pragma omp parallel private(A, b)
 {
-  A = rand();
-  printf("A = %d\n", A);    // будет выведно несколько (по числу потоков) значений
+ A = rand();
+ printf("A = %d\n", A);    // будет выведено несколько (по числу потоков) значений
 }
 
-  printf("A = %d\n", A);  // будет выведено -1
+ printf("A = %d\n", A);  // будет выведено -1
 ```
 
 **см. также `firstprivate`, `lastprivate`,
 
-**reduction (операция : список перменных)**
+**reduction (операция : список переменных)**
 - создаёт инициализированные копии глобальной переменной в каждом потоке
 - в конце || секции выполняется указанная операция с локальными копиями, результат записывается в исходные глобальные переменные
 
 #### Директивы компилятора для синхронизации
 For master and synchronization:
 
-`master` 	Specifies that only the master thread should execute a section of the program.
-`critical` 	Specifies that code is only executed on one thread at a time.
-`barrier` 	Synchronizes all threads in a team; all threads pause at the barrier, until all threads execute the barrier.
-`atomic` 	Specifies that a memory location that will be updated atomically.
-`flush` 	Specifies that all threads have the same view of memory for all shared objects.
-`ordered` 	Specifies that code under a parallelized for loop should be executed like a sequential loop.
+- `master` 	Specifies that only the master thread should execute a section of the program.
+
+- `critical` 	Specifies that code is only executed on one thread at a time.
+
+- `barrier` 	Synchronizes all threads in a team; all threads pause at the barrier, until all threads execute the barrier.
+
+- `atomic` 	Specifies that a memory location that will be updated atomically.
+
+- `flush` 	Specifies that all threads have the same view of memory for all shared objects.
+
+- `ordered` 	Specifies that code under a parallelized for loop should be executed like a sequential loop.
 
 For data environment:
-`threadprivate` 	Specifies that a variable is private to a thread.
+- `threadprivate` 	Specifies that a variable is private to a thread.
 
 https://docs.microsoft.com/ru-ru/cpp/parallel/openmp/reference/openmp-directives?view=msvc-160
 
@@ -198,13 +203,13 @@ https://docs.microsoft.com/ru-ru/cpp/parallel/openmp/reference/openmp-directives
 
 ```C++
 for (i=0; i<n; i++)
-    c[i] = a[i] + b[i];
+   c[i] = a[i] + b[i];
 ```
 Если оператор сложения имеет перегруженную векторную форму, то код можно переписать так:
 ```C++
 c = a + b;
 ```
-Однако, чаще всего такое сложение массивов можно векторизовать частыными сложениями отдельниых блоков массивов (например по 4 элемента).
+Однако, чаще всего такое сложение массивов можно векторизовать частными сложениями отдельных блоков массивов (например по 4 элемента).
 
 
 - современные компиляторы (с включёнными опциями оптимизации) могут поддерживать автоматическую векторизация.
@@ -215,7 +220,7 @@ c = a + b;
 - набор инструкций SSE процессоров intel
 - набор инструкций 3DNow! в процессорах AMD
 
-Процессоры поддреживающие векторные операции хранят данные в *векторных регистрах*.
+Процессоры поддерживающие векторные операции (все современный процессоры) хранят данные в *векторных регистрах*.
 
 (Пример)[examples/auto_vectorization]
 
@@ -229,8 +234,8 @@ ivdep – ignore vector dependencies. Изменяет способ принят
 Пример рискованной, с точки зрения компилятора векторизации цикла:
 ```
 void sum(float *a, float b*, float *c, float *d, float *e, unsigned n){
-  for (unsigned i =0; i<n; i++)
-    a[i] = a[i] + b[i] + c[i] + d[i] + c[i];
+ for (unsigned i =0; i<n; i++)
+   a[i] = a[i] + b[i] + c[i] + d[i] + c[i];
 }
 ```
 
@@ -251,7 +256,7 @@ void sum(float *a, float b*, float *c, float *d, float *e, unsigned n){
 ...
 #pragma omp simd safelen(8)
 for (unsigned i=8; i<n; i++){
-  a[i] = a[i-8]
+ a[i] = a[i-8]
 }
 ```
 
@@ -264,7 +269,7 @@ for (unsigned i=8; i<n; i++){
 
 
 *Ограничения*
-Если в цикле вызывается функция, то в общем случае этот цикл не векторизуется. Чтобы избежать этого, отдельные функция можно сдалать векторизуемыми
+Если в цикле вызывается функция, то в общем случае этот цикл не векторизуется. Чтобы избежать этого, отдельные функция можно сделать векторизуемыми
 
 ```C++
 #pragma omp declare simd
@@ -272,7 +277,7 @@ float sum(float a, float b){return a+b;}
 
 #pragma omp simd
 for (unsigned i=0; i<n; i++)
-  c[i] = sum(a[i], b[i]);
+ c[i] = sum(a[i], b[i]);
 ```
 
 #### Дополнительно
@@ -291,9 +296,9 @@ for (unsigned i=0; i<n; i++)
 // после цикла переместит переменную a с устройства
 //
 {
-  #pragma omp parallel for
-    for (i=0; i<count; i++) {
-      a[i] = b[i] * c + d;}
+ #pragma omp parallel for
+   for (i=0; i<count; i++) {
+     a[i] = b[i] * c + d;}
 }
 ```
 
