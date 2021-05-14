@@ -224,7 +224,28 @@ c = a + b;
 
 Процессоры поддерживающие векторные операции (все современный процессоры) хранят данные в *векторных регистрах*.
 
-(Пример)[examples/auto_vectorization]
+#### Пример
+[Пример](examples/auto_vectorization)
+
+Компиляция примера:
+- Вариант 1, без векторизации:
+   `g++ main.cpp -o main-no_vec`
+
+- Вариант 2, оптимизация (включая векторизацияю):
+   `g++ main.cpp -o main-vec -O3`
+
+![](img/gcc-ox.png)
+
+
+
+Комнады компиляция приведены для linux, С++ компилятора GCC. В Windows имя исполняемого файла аналогичного компилятора отличается (см. MinGW)
+
+Флаги коппилятора, связанные с векторизацией:
+- `-O -fopt-info`             -- показать все подробности об оптимизации. не покажет ничего, если оптимизация не производилась
+- `-fopt-info-vec`            -- показать информации о векторизации циклов
+- `-fopt-info-vec-missed`     -- показать не векторизованные операции
+- `-fopt-info-vec-note`       -- Detailed info about all loops and optimizations being done.
+- `-fopt-info-vec-all`        -- All previous options together.
 
 https://stackoverflow.com/questions/29292818/how-to-vectorize-my-loop-with-g
 
