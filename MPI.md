@@ -20,7 +20,7 @@ Message Passing Interface (MPI, интерфейс передачи сообще
 
 - Основным средством коммуникации между процессами в MPI является передача сообщений друг другу.
 
-- Существуют реализации для языков Фортран 77/90, Java, C, C++, Python
+- Существуют реализации для языков Фортран 77/90, Java, C, C++
 
 - Первая версия MPI разрабатывалась в 1993—1994 году, и MPI 1 вышла в 1994.
 
@@ -28,13 +28,14 @@ Message Passing Interface (MPI, интерфейс передачи сообще
 
 - MPI 4.0 должен появится в 2021 году.
 
-- существует большое число реализаций, как бесплатных (MPICH) так и коммерческих (Intel MPI)
+- существует большое число реализаций, как бесплатных (MPICH, OpenMP) так и коммерческих (Intel MPI)
 
 - MPICH разрабатывается в Аргоннской национальной лаборатории США, с участием компаний IBM, Cray, SiCortex, Microsoft, Intel, ...
 
-- можно запускать в локальной сети или даже на локальном компьютере
+- можно запускать в локальной сети или даже на локальном компьютере.
 
 - https://www.mpi-forum.org/
+  - новые версии MPICH доступны только для Linux.
 
 ### Скачать
 https://www.mpich.org/downloads/
@@ -109,7 +110,7 @@ mpicc\mpic++ -- обёртки над компиляторами C и C++.
 
 
 Запуск MPI программ на локальной машине\
-`mpirun -np 5 ./main`\
+`mpiexec -np 5 ./main`\
 `-np 5` -- указание числа процессов (5)
 
 
@@ -121,6 +122,10 @@ Hello world from processor s-pc, rank 0 out of 5 processors
 Hello world from processor s-pc, rank 4 out of 5 processors
 Hello world from processor s-pc, rank 2 out of 5 processors
 ```
+
+После указания имени исполняемого файла для mpiexec можно передать параметры коммандной строки MPI программе.
+
+см. также [mpiexec vs mpirun](https://stackoverflow.com/questions/25287981/mpiexec-vs-mpirun)
 
 ### Передача сообщений
 
@@ -194,7 +199,13 @@ MPI_Recv(
 
 Вызов функций -- блокирующий. Принимать сообщения можно от любого процесса, но отправлять только на конкретный.
 
-**Пример**
+Если буффер приёма не способен вместить сообщение, то программа аварийно завершится.
+
+Отправляемое сообщение может буть меньше буффера приёма.
+
+Сообщения отправляются и принимаются через сетевое соединение.
+
+**Пример 1**
 ```C++
 // Find out rank, size
 int world_rank;
@@ -214,5 +225,41 @@ if (world_rank == 0) {
 }
 ```
 
+**Пример 2**\
+Какое число будет выведено на экран?
+```C++
+#include <iostream>
+#include "mpi.h"
+int main (int argc, char **argv)
+{
+ int rank;
+ MPI_Status status;
+ MPI_Init( &argc, &argv );
+ MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+
+ int a[5];
+ a[0] = 10;
+ a[1] = rank;
+ if (rank == 1)  
+    MPI_Send (&a[1], 1, MPI_INT, 0, 99, MPI_COMM_WORLD);
+  else   {
+    MPI_Recv(&a[0], 1, MPI_INT, 1, 99, MPI_COMM_WORLD, &status);
+    std::cout << a[0];
+ }
+ MPI_Finalize();
+}
+```
+
 ### Измерение времени
 `double MPI_Wtime()` -- возвращает время в секундах, прошедшее с некоторого момента в прошлом.
+
+
+### Запуск на нескольких узлах в сети
+Подготовка кластера: https://mpitutorial.com/tutorials/running-an-mpi-cluster-within-a-lan/#step-4-setting-up-nfs
+
+
+```mpiexec -np <number of processes> -hostfile <path to file of hosts> ./your_program```
+
+
+## Дополнительные материалы:
+https://anl.app.box.com/v/2019-06-21-basic-mpi

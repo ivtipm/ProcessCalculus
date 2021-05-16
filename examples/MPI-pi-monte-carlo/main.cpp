@@ -27,9 +27,14 @@ ulong circle_square(ulong n){
     return m;
 }
 
-int main()
+int main(int argc, char** argv)
 {   cout.precision(8);
+
     ulong N = 1000*1000*100;    // число случайных точек. для вычисления Pi
+
+    if (argc > 1){
+        N = atoll(argv[1]);
+    }
 
     MPI_Init(nullptr, nullptr);
 
@@ -62,7 +67,10 @@ int main()
         double t0 = MPI_Wtime();
         ulong m = circle_square(N);
         cout << "#" << my_id << " Done: pi=" << 4.*m/N << ";  error " << fabs(4.*m/N-M_PI) << "; time: " << MPI_Wtime()-t0 << " s" << endl;
-        MPI_Send(&m, 1, MPI_UNSIGNED_LONG, 0, 0, MPI_COMM_WORLD);
+        MPI_Send(&m, 1, MPI_UNSIGNED_LONG,
+                 0,                          // id принимающего процесса
+                 0,                          // id тега сообщения
+                 MPI_COMM_WORLD);
     }
 
 
@@ -78,4 +86,6 @@ int main()
 // mpirun -np 10 ./MPI-pi-monte-carlo
 // -np 10 -- 10 процессов
 // ./MPI-pi-monte-carlo имя испольняемого файла (включая имя текующего каталога . )
+
+// программа принимает один аргумент -- число случайных точек
 
