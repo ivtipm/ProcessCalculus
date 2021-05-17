@@ -26,7 +26,13 @@
 3. или используйте liveUSB, с возможностью сохранения изменений
 4. или используйте бесплатные облачные сервисы. например [amazon](https://aws.amazon.com/ru/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
 
-[Инструкция](https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%BD%D0%B0-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-%D1%83%D0%B7%D0%BB%D0%B0%D1%85-%D0%B2-%D1%81%D0%B5%D1%82%D0%B8)
+[Инструкция по настройке кластера](https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%BD%D0%B0-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-%D1%83%D0%B7%D0%BB%D0%B0%D1%85-%D0%B2-%D1%81%D0%B5%D1%82%D0%B8)
+
+[ubuntu](https://ubuntu.com/download/desktop)
+
+[создание liveUSB](https://omgubuntu.ru/create-live-usb-of-ubuntu-in-windows/)
+
+
 
 ## Лекция 12
 май 14
