@@ -326,6 +326,191 @@ ip_host2:4
 ## Пример
 https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
 
+
+## Коллективные операции: барьерная синхронизация, распределение и сбор данных
+
+`MPI_Barrier` - процесс, вызвавший функцию MPI_Barrier, приостанавливает выполнение свое до
+тех пор, пока все остальные процессы так же не вызовут эту функцию
+
+**Широковещательная рассылка данных**
+`MPI_Bcast` -- процесс с номером root рассылает сообщение из своего буфера передачи всем процессам области связи коммуникатора comm.
+
+```C++
+    int MPI_Bcast(void* buffer, int count, MPI_Datatype datatype, int root,
+    MPI_Comm comm )
+```
+- блокирующая функция
+- нельзя получить данные с помщью MPI_Recv
+
+
+**сбор данных**
+- `MPI_Gather` -- производит сборку блоков данных, посылаемых всеми процессами группы, в один массив процесса с номером root. Длина блоков предполагается одинаковой. Объединение происходит в порядке увеличения номеров процессов-отправителей. То есть данные, посланные процессом i из своего буфера sendbuf, помещаются в i-ю порцию буфера recvbuf процесса root. Длина массива, в который собираются данные, должна быть достаточной для их размещения.
+```C++
+int MPI_Gather(void* sendbuf, int sendcount, MPI_Datatype sendtype,   // буф. отправки
+    void* recvbuf, int recvcount, MPI_Datatype recvtype,              // буф. приёма
+    int root,                                                        // номер. проц. для сборки данных
+    MPI_Comm comm)
+```
+- `MPI_Allgather` -- то же самое, что и MPI_Gather, но данные собираются на всех процессах
+- `MPI_Gatherv`
+- `MPI_Allgatherv`.
+
+
+`MPI_Scatter` разбивает сообщение из буфера посылки процесса root на равные части размером sendcount и посылает i-ю часть в буфер приема процесса с номером i (в том числе и самому себе). Процесс root использует оба буфера (посылки и приема), поэтому в вызываемой им подпрограмме все параметры являются существенными. Остальные процессы группы с коммуникатором comm являются только получателями, поэтому для них параметры, специфицирующие буфер посылки, не существенны.
+```C++
+int MPI_Scatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype,    // буф. отправки
+                void *recvbuf, int recvcount, MPI_Datatype recvtype,          // буф. приёма
+                 int root,
+                 MPI_Comm comm)
+```
+
+
+- `sendbuf`
+    address of send buffer (choice, significant only at root)
+- `sendcount`
+    number of elements sent to each process (integer, significant only at root)
+- `sendtype`
+    data type of send buffer elements (significant only at root) (handle)
+- `recvcount`
+    number of elements in receive buffer (integer)
+- `recvtype`
+    data type of receive buffer elements (handle)
+- `root`
+    rank (id) of sending process (integer)
+- `comm`
+    communicator (handle)
+
+
+См. также `MPI_Scatterv`
+
+
+##### Пример
+Вычисление суммы двух массивов
+```C++
+#include "mpi.h"
+#include <iostream>
+using namespace std;
+int main(int argc, char **argv)
+{
+	int rank, size;
+	MPI_Init(&argc, &argv);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+	int const n = 10;
+	int n1 = n / size;
+	int a[n],  b[n],  c[n];
+	int a1[n], b1[n], c1[n];
+
+	// Заполнение массивов
+	if (rank == 0)
+		for (int i = 0; i < n; i++)			
+		{
+			a[i] = rand() % 10;
+			b[i] = rand() % 10;
+		}		
+    // Распределение данных с нулевого процесса
+	MPI_Scatter(&a[0], n1, MPI_INT, &a1[0], n1, MPI_INT, 0, MPI_COMM_WORLD);
+	MPI_Scatter(&b[0], n1, MPI_INT, &b1[0], n1, MPI_INT, 0, MPI_COMM_WORLD);
+
+	// Вычисления
+	for (int i = 0; i <= n1; i++)
+		c1[i] = a1[i] + b1[i];
+
+	// Сбор данных на нулевом процессе
+	MPI_Gather(&c1[0], n1, MPI_INT, &c[0], n1, MPI_INT, 0, MPI_COMM_WORLD);
+
+	//Выдача результатов
+	if (rank == 0) {
+		cout << "        a[i]  b[i]  c[i]" << endl;
+		for (int i = 0; i < n; i++)
+		{
+			cout << " i= " << i << "     " << a[i] << "     " << b[i] << "     " << c[i] << endl;
+		}
+	}
+
+	MPI_Finalize();
+	return 0;
+}
+```
+
+**Функции редукции**
+```C++
+int MPI_Reduce(void* sendbuf,   // буф. отправки
+  void* recvbuf, int count,     // буф. приёма
+MPI_Datatype datatype, MPI_Op op, int root, MPI_Comm comm)
+```
+
+-	sendbuf 	адрес посылающего буфера (альтернатива) 	
+- recvbuf 	адрес принимающего буфера (альтернатива, используется только корневым процессом) 	
+- count 	количество элементов в посылающем буфере (целое) 	
+- datatype 	тип данных элементов посылающего буфера (дескриптор) 	
+- op 	операция редукции
+  - MPI_OP_NULL
+  - MPI_MAX
+  - MPI_MIN
+  - MPI_SUM
+  - MPI_PROD
+  - MPI_LAND
+  - MPI_BAND
+  - MPI_LOR
+  - MPI_BOR
+  - MPI_LXOR
+  - MPI_BXOR
+  - MPI_MINLOC
+  - MPI_MAXLOC
+  - MPI_REPLACE
+- root 	номер главного процесса (целое) 	
+- comm 	коммуникатор (дескриптор)
+
+
+
+**Пример**
+Вычисление скалярного произведения двух векторов
+```C++
+#include <iostream>
+#include <mpi.h>
+#include <cmath>
+
+int main(int argc, char **argv) {
+  MPI_Init(&argc, &argv);
+
+  int rank, size;
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+  // The initial values, u_i = i^2; v_i = log(i+1)
+  float u_i = rank*rank;
+  float v_i = log(rank+1.0);
+
+  // Computing the intermediate value
+  float tmp = u_i * v_i;
+
+  // Reducing on process 0 :
+  float result;
+  MPI_Reduce(&tmp, &result, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+
+  if (rank == 0) {
+    std::cout << "The reduced value is " << result << std::endl;
+
+    // Checking the result
+    float validation = 0.0f;
+    for (int i=0; i < size; ++i)
+      validation += i*i * log(i+1.0f);
+
+    std::cout << "Validation gives the value : " << validation << std::endl;
+  }
+
+  MPI_Finalize();
+
+  return 0;
+}
+```
+
+
+
+
+
 ## Дополнительные материалы:
 https://anl.app.box.com/v/2019-06-21-basic-mpi
 
