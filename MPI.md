@@ -114,6 +114,12 @@ mpicc\mpic++ -- обёртки над компиляторами C и C++.
 `-np 5` -- указание числа процессов (5)
 
 
+После имени программы можно указать её параметры
+`mpiexec -np 5 ./main 99999999`
+
+Возможен одновременный запуск нескольких различныйх программ
+`mpiexec -np 4 ./app1 : -np 4 ./app2`
+
 Вывод программны
 ```
 Hello world from processor s-pc, rank 1 out of 5 processors
@@ -256,8 +262,10 @@ int main (int argc, char **argv)
 
 ### Запуск на нескольких узлах в сети
 Подготовка кластера: https://mpitutorial.com/tutorials/running-an-mpi-cluster-within-a-lan/#step-4-setting-up-nfs
-- один из компьютеров кластера должен быть главным -- на нём запускается программа (и заодно сервер)
-```mpiexec -np <number of processes> -hosts ip_host1, ip_host2 ./your_program```
+- один из компьютеров кластера должен быть главным -- на нём запускается программа (и заодно MPI сервер)
+```
+mpiexec -np <number of processes> -hosts ip_host1, ip_host2 ./your_program
+```
 
 - запускаемая программа должна находится по одинаковому пути на всех узлах кластера (поэтому рекомендуется настроить NFS, создавать одинаковых пользователей). Иначе ошибка `unable to change wdir to ...`
 
@@ -265,9 +273,47 @@ int main (int argc, char **argv)
   - установить ssh сервер на всех подчинённых узлах,
   - организовать доступ к ним по ключу (а не паролю)
 
-- подчинённые узлы должны уметь найти главный узел по его имени (имени компьютера), поэтому нужно записать IP и это имя в hosts файл каждого подчинённого узла. Иначе ошибка: `unable to get host address for computer-name`
+- подчинённые узлы должны уметь найти главный узел по его имени (имени компьютера), поэтому нужно записать IP главного узла и его имя в hosts файл каждого подчинённого узла. Иначе ошибка: `unable to get host address for computer-name`.
 
 - на всех узлах кластера должна быть установлена одна и та же версия MPICH. Проверить версию: `mpichversion`
+
+
+Ручное указание IP адресов кластера можно заменить на текстовый файл, содержащий перечень этих адресов (https://wiki.mpich.org/mpich/index.php/Using_the_Hydra_Process_Manager#Quick_Start):
+
+`mpiexec -n 7  -f cluster-nodes.list ./main 5000000000`
+
+Файл со списком узлов cluster-nodes.list:
+```
+ip_host1
+ip_host2
+```
+
+Дополнительно в файле можно указать количество процессов, которое запустится на каждом узле
+```
+ip_host1:3  # число процессов указывается после :
+ip_host2:4
+```
+
+**Запуск кластера на узлах вне одной локальной сети**
+
+1. Организовать VPN (https://averagelinuxuser.com/linux-vpn-server/)
+  1. Установить OpenVPN на один из узлов\
+    - установка в Ubuntu\
+    `sudo apt install openvpn curl`
+    - скачать скрипт для быстрой установки и настройки VPN сервера
+    ```bash
+    curl -O https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh
+    chmod +x openvpn-install.sh
+    ```
+    - запустить скрипт: `sudo ./openvpn-install.sh`. Почти все настройки (будет запущен текстовый мастер установки) можно оставить неизменными.
+    - в процессе установки указать (client name) имя конфигурационного файла. Этот файл с расширением .ovpn будет использоваться для подключения клиентов к VPN серверу.
+    - скопировать .ovpn файл на остальные узлы кластера
+
+  1. Подключить клиентские VPN приложения к этому серверу
+  - подключить каждый узел кластера к VPN:\
+  `sudo openvpn my-config-client.ovpn`
+
+1. Запустить распределённые вычисления, указав в параметре `-hosts` IP адреса узлов виртуальной сети (VPN)
 
 
 ## Дополнительные материалы:
@@ -281,3 +327,8 @@ sudo apt upgrade
 sudo apt install mpich openssh-server zsh nano
 
 ```
+
+
+# Ссылки
+  - https://mpitutorial.com/tutorials/
+  - https://wiki.mpich.org/mpich/index.php/Category:Design_Documents
