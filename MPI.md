@@ -323,9 +323,12 @@ ip_host2:4
 
 1. Запустить распределённые вычисления, указав в параметре `-hosts` IP адреса узлов виртуальной сети (VPN)
 
+## Пример
+https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
 
 ## Дополнительные материалы:
 https://anl.app.box.com/v/2019-06-21-basic-mpi
+
 
 
 # ***
