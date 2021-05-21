@@ -30,6 +30,8 @@
 
 - Синхронизация с помощью ***условных переменных (condation variables)*** на примере потоков в С++ [examples/condition_variables](https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables)
 
+[ещё примеры](https://github.com/ivtipm/ProcessCalculus/tree/master/examples)
+
 ## Ссылки
 1. Моделирование параллельных процессов. Сети Петри. Мараховский В. Б., Розенблюм Л. Я., Яковлев А. В. — СПб.:
 Профессиональная литература, 2014. – 400 с

@@ -7,6 +7,8 @@
 ## Лекция 14
 май 28
 - повторение материала
+- [MPI](../MPI.md) (продолжение)
+- CUDA через pytorch: https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi?usp=sharing
 - MapReduce
 
 
@@ -15,7 +17,6 @@
 май 21
 - повторение материала
 - [MPI](../MPI.md) (продолжение)
-- CUDA через pytorch
 
 
 
