@@ -344,6 +344,7 @@ https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carl
 - блокирующая функция
 - нельзя получить данные с помщью MPI_Recv
 
+![](img/mpi_bcast.png)
 
 **Сбор данных**
 - `MPI_Gather` -- производит сборку блоков данных, посылаемых всеми процессами группы, в один массив процесса с номером root. Длина блоков предполагается одинаковой. Объединение происходит в порядке увеличения номеров процессов-отправителей. То есть данные, посланные процессом i из своего буфера sendbuf, помещаются в i-ю порцию буфера recvbuf процесса root. Длина массива, в который собираются данные, должна быть достаточной для их размещения.
@@ -353,6 +354,9 @@ int MPI_Gather(void* sendbuf, int sendcount, MPI_Datatype sendtype,   // буф.
     int root,                                                        // номер. проц. для сборки данных
     MPI_Comm comm)
 ```
+
+![](img/mpi_gather.png)
+
 - `MPI_Allgather` -- то же самое, что и MPI_Gather, но данные собираются на всех процессах
 - `MPI_Gatherv`
 - `MPI_Allgatherv`.
@@ -365,8 +369,6 @@ int MPI_Scatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype,    //
                  int root,
                  MPI_Comm comm)
 ```
-
-
 - `sendbuf`
     address of send buffer (choice, significant only at root)
 - `sendcount`
@@ -382,6 +384,7 @@ int MPI_Scatter(const void *sendbuf, int sendcount, MPI_Datatype sendtype,    //
 - `comm`
     communicator (handle)
 
+![](img/mpi_scatter.png)
 
 См. также `MPI_Scatterv`
 
