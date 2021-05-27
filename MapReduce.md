@@ -73,7 +73,17 @@ reduce(lambda x,y: x+y, range(5))
 1. Легко масштабируется
 
 
+#### Hadoop Streaming
+![](img/hadoop-streaming.png)
+
+Mapper и reducer – программы, команды или Java-класс
+- Читают из stdin, пишут в stdout
+- Sort & shuffle обеспечивает hadoop
+- Reducer вызывается один на одну reduce-
+задачу
+
 # См. также
+- подробная схема MapReduce: https://i1.wp.com/0x0fff.com/wp-content/uploads/2014/12/MapReduce-v3.png
 - BigData
   - хранение: HDSF
-  - обработка hadoop
+  - обработка: hadoop
