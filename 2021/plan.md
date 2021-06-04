@@ -2,6 +2,7 @@
 июнь 04
 - повторение материала
 - защита работ
+- нейросети, пример: https://colab.research.google.com/drive/1YtK4an7UAhnxTmhmQzZd6Eo3esfv6TL3?usp=sharing
 
 
 ## Лекция 14
