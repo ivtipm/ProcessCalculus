@@ -2,6 +2,11 @@
 июнь 04
 - повторение материала
 - защита работ
+- нейросети, пример: https://colab.research.google.com/drive/1YtK4an7UAhnxTmhmQzZd6Eo3esfv6TL3?usp=sharing
+
+## Домашнее задание
+Создайте нейросеть для предсказания цены дома.
+Шаблон: https://colab.research.google.com/drive/1RuhGnyJ8lDeCHXsTdTf1KHsgeq2EG4ao#scrollTo=RaKYcj86ikSB
 
 
 ## Лекция 14
