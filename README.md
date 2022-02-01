@@ -42,12 +42,6 @@
 1. [Сладйы лекций](https://cc.dvo.ru/uchebnaya-literatura.html) -- Голенков Е.А., Харитонов Д.И., Тарасов Г.В., Парахин Р.В. Курс лекций «Теория вычислительных процессов и структур»
 
 1. [Computer Science Center -- Курс "Пареллельное программирование"](https://compscicenter.ru/courses/hp-course/2016-spring/classes/)
-
 - [Симуляция сети Петри](http://petri.hp102.ru/pnet.html)
-
 - [Построение и анализ сетей Петри](https://apo.adrian-jagusch.de/#/Sample%20Net)
-
-
-
-
-[ivtipm.github.io/ProcessCalculus](https://ivtipm.github.io/ProcessCalculus)
+- [Онлайн-доска](https://webwhiteboard.com/)
