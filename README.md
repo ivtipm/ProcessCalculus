@@ -5,7 +5,7 @@
 # [Курс 2021](2021/plan.md)
 
 ### Примерная структура курса
-0. Введение в Pyhton
+0. Введение в Pyhton [https://github.com/VetrovSV/Programming]
 1. Верификация программ и контрактное программирование [PC_lec1.verifacation.pdf](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec1.verifacation.pdf).
 1. Стандартные схемы программ (https://cc.dvo.ru/docs/lectures-tvps/lecture02.pdf)
 1. Сети Петри [1,2]
