@@ -14,10 +14,11 @@
     1. Некоторые примеры моделирования с помощью сетей Петри. простой процесс, одноканальная СМО, моделирование выполнения циклической программы.
     1. Анализ сети Петри. Свойства сетей Петри. Задача достижимости. Матричный способ решения задачи достижимости. Матрица инцидентности.
 1. Параллельное программирование. [ [Computer Science Center -- Курс "Параллельное программирование"](https://compscicenter.ru/courses/hp-course/2016-spring/classes/) ]
-    1. Процессы и потоки. Синхронизация потоков. Проблемы синронизации.
-    1. OpenMP
-    1. MPI
-    1. CUDA через pyTorch https://colab.research.google.com/drive/1qm3deqBHBP2gqRQ-WioyIiYD0I7scnhB?usp=sharing
+    1. Процессы и потоки. Синхронизация потоков. Проблемы синронизации., [PC. lec. parallel.pdf](https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC.%20lec.%20parallel.pdf),  [ll2.md](ll2.md), [4](https://compscicenter.ru/courses/hp-course/2016-spring/classes/)
+    1. [OpenMP](OpenMP.md)
+    1. [MPI](MPI.md)
+    2. [MapReduce](MapReduce.md)
+    3. CUDA через pyTorch https://colab.research.google.com/drive/1qm3deqBHBP2gqRQ-WioyIiYD0I7scnhB?usp=sharing
 
 ## Примеры
 - Потоки в C++: создание потоков, передача параметров по ссылке, возвращение значение из потока, callback функции [examples/example_thread](https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread)
