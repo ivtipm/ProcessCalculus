@@ -1,10 +1,8 @@
 ## Лекция 1
 - февраль 07
 - Python. Особенности. IDE Pycharm. Типы данных. Операторы. 
-- Слайды:
-    - https://github.com/VetrovSV/Programming/blob/master/Programming_03.pdf
-    - https://github.com/VetrovSV/Programming/blob/master/Programming_04.pdf
-    - https://github.com/VetrovSV/Programming/blob/master/Programming_07.pdf
+- Слайды 1-5:
+    - https://github.com/VetrovSV/Programming
 - примеры и материалы: https://miro.com/app/board/uXjVORmoCO0=/?invite_link_id=993701359201
 
 
