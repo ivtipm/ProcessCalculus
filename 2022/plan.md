@@ -1,5 +1,6 @@
 ## Лекция 2
 февраль 14
+- доклады
 - Python. Повторение. Модули. Установка. matplotlib. numpy. scipy.
 - см. примеры в Discord и miro
 
@@ -28,6 +29,7 @@
 - O‘Conor T.J. Violent Python: A Cookbook for Hackers, Forensic Analysts, Penetration Testers and Security Engineers. 2012 — 288 p.
 - Numerical methods in engineering with Python 3 / Jaan Kiusalaas
 
+<br/><br/>
 
 ## Лекция 1
 февраль 07
