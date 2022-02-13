@@ -1,10 +1,12 @@
-## Лекция 3
-февраль 21
+## Лекция 4
+февраль 28
 - Верификация программ
     - формальная верификация; тройка Хоара; вывод слабейшего предусловия
     - контрактное программирование
     - https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec1.verifacation.pdf
 
+### Практика
+Защита работ
 
 #### Домашнее задание
 - Конспект: инспекция кода; статические анализаторы кода
@@ -13,6 +15,20 @@
 
 #### Литература
 1. А. С. Камкин. Введение в формальные методы верификации программ. 2018
+
+
+## Лекция 3
+февраль 21
+- Python. 
+    - Повторение. 
+    - matplotlib. numpy. scipy
+    - классы
+    - файлы
+- Слайды:
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_14_data_structures.pdf
+
+### Практика
+Защита работ
 
 ## Лекция 2
 февраль 14
@@ -24,12 +40,17 @@
     - Модули. Установка. 
     - matplotlib. numpy. scipy.
 - см. примеры в Discord и miro
-
+- Слайды:
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_11_func1.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_12_func2.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_13_modules.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_09.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_14_data_structures.pdf
 
 
 
 ### Практика 2
-- Защита работ
+Защита работ
 
 
 #### Домашнее задание
