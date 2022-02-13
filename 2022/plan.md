@@ -97,7 +97,7 @@
 Для того чтобы освоить базовые элементы синтаксиса языка программирования решите несколько задач.
 
 
-![](../2021/python-tasks-table.png)
+![](https://github.com/ivtipm/ProcessCalculus/raw/master/2021/python-tasks-table.png)
 
 1. Задачи на Pyhton
 Задачник -- https://ivtipm.github.io/Programming/Files/spisocall.htm
