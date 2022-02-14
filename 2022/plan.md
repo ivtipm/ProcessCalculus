@@ -35,10 +35,10 @@
 - доклады
 - Python. 
     - Повторение. 
-    - Анонимные функции. map, zip.
+    - Анонимные функции. map, zip, enumerate
     - Параметры-ссылки и параметры-значения.
-    - Модули. Установка. 
-    - matplotlib. numpy. scipy.
+    - ~Модули. Установка.~
+    - ~matplotlib. numpy. scipy.~
 - см. примеры в Discord и miro
 - Слайды:
     - https://github.com/VetrovSV/Programming/blob/master/Programming_11_func1.pdf
