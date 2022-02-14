@@ -20,37 +20,14 @@
 ## Лекция 3
 февраль 21
 - Python. 
-    - Повторение. 
+    - Повторение.
+    - Модули. Установка. virtual enviroment
     - matplotlib. numpy. scipy
-    - классы
+    - Классы. Поля и методы; конструктор; операторы; наследование; сокрытие; функции как объекты;
     - файлы
 - Слайды:
-    - https://github.com/VetrovSV/Programming/blob/master/Programming_14_data_structures.pdf
-
-### Практика
-Защита работ
-
-## Лекция 2
-февраль 14
-- доклады
-- Python. 
-    - Повторение. 
-    - Анонимные функции. map, zip, enumerate
-    - Параметры-ссылки и параметры-значения.
-    - ~Модули. Установка.~
-    - ~matplotlib. numpy. scipy.~
-- см. примеры в Discord и miro
-- Слайды:
-    - https://github.com/VetrovSV/Programming/blob/master/Programming_11_func1.pdf
-    - https://github.com/VetrovSV/Programming/blob/master/Programming_12_func2.pdf
     - https://github.com/VetrovSV/Programming/blob/master/Programming_13_modules.pdf
-    - https://github.com/VetrovSV/Programming/blob/master/Programming_09.pdf
     - https://github.com/VetrovSV/Programming/blob/master/Programming_14_data_structures.pdf
-
-
-
-### Практика 2
-Защита работ
 
 
 #### Домашнее задание
@@ -66,6 +43,29 @@
    - *дополнительно*: постройте графики выявленых заражений COVID-19 и смертности для нескольких стран 
         - данные https://data.humdata.org/dataset/coronavirus-covid-19-cases-and-deaths
         - подсказка: используте библиотеку pandas
+
+
+### Практика
+Защита работ
+
+## Лекция 2
+февраль 14
+- доклады
+- Python. 
+    - Повторение. 
+    - Анонимные функции. map, zip, enumerate
+    - Параметры-ссылки и параметры-значения.
+- см. примеры в Discord и miro
+- Слайды:
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_11_func1.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_12_func2.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_09.pdf
+    - https://github.com/VetrovSV/Programming/blob/master/Programming_14_data_structures.pdf
+
+
+
+### Практика 2
+Защита работ
 
 
 #### Дополнительно
