@@ -4,6 +4,12 @@
 - Сети Петри
 - https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
 
+### Домашнее задание
+- Пункты 1 и 2 из задания
+https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/%D0%97%D0%B0%D0%B4%D0%B0%D0%B8%D0%B5.%20%D0%A1%D0%B5%D1%82%D1%8C%20%D0%9F%D0%B5%D1%82%D1%80%D0%B8.pdf
+- Подберите начальную маркировку, для которой можно запустить переходы минимум три раза
+
+
 ## Занятие 6
 март 21
 - Повторение, опрос.
