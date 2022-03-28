@@ -2,6 +2,7 @@
 март 28
 - Повторение, опрос.
 - Сети Петри
+- https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
 
 ## Занятие 6
 март 21
