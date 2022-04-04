@@ -1,3 +1,10 @@
+## Занятие 8
+апрель 4
+- Повторение, опрос.
+- Сети Петри (продолжение)
+- https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
+
+
 ## Занятие 7
 март 28
 - Повторение, опрос.
