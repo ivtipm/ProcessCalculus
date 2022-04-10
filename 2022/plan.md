@@ -3,8 +3,9 @@
 апрель 11
 - Повторение, опрос.
 - Сети Петри (продолжение)
-- https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
+   - https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
 - Параллельное программирование
+   - https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC.%20lec.%20parallel.pdf
 
 #### Домашнее задание
 - Получите четыре новых маркировки сети Петри используя вектор из числа срабатываний и матрицу инцидентности. Используйте заданную в передыдущем задании маркировку.
