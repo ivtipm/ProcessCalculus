@@ -1,5 +1,5 @@
 
-## Занятие 9. Сети Петри
+## Занятие 9. Сети Петри. Параллельное программирование
 апрель 11
 - Повторение, опрос.
 - Сети Петри (продолжение)
@@ -39,8 +39,8 @@ https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/%D0%97%D0%B0%D0%
 - https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC_lec_Petri_Net.pdf
 
 ### Дополнительно
-- https://www.youtube.com/watch?v=_umjCNrh1do - Теория автоматов лекция 1
-- http://is.ifmo.ru/books/_book.pdf - Автоматное программирование А. А. Шалыто
+- https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D1%8B%D0%B9_%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82 -- Абстрактный автомат
+- http://is.ifmo.ru/books/_book.pdf -- Автоматное программирование А. А. Шалыто
 
 ### Домашнее задание
 - Пункты 1 и 2 из задания
