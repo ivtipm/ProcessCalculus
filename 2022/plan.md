@@ -1,6 +1,14 @@
 ## Занятие 10. Параллельное программирование
 апрель 18
 - Повторение. Опрос.
+ - Потоки в C++ (продолжение)
+   - https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_thread/main.cpp
+- Потоки в Qt:
+   - https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_qthread
+- Потоки в Java:
+   - https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_threads
+   - https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_thread-gui
+   - 
 - Синхронизация потоков.
 - https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC.%20lec.%20parallel.pdf
 
@@ -15,6 +23,7 @@
    - взаимноя блокировка
    - проблема ABA
    - Потоки в C++
+      - https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_thread/main.cpp
 - https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC.%20lec.%20parallel.pdf
 
 
