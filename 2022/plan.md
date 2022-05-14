@@ -1,19 +1,29 @@
 ## Занятие 12. Параллельное программирование
 ## Не расмотренные темы
 - Условные переменные (condidtional variables)
+  - [Пример](examples/condition_variables/main.cpp)
 - Синхронизация процессов
+  - [примеры на python](examples/process_python)
 - OpenCL
 - [MPI](MPI.md)
+  - [Пример](examples/MPI-pi-monte-carlo/main.cpp)
 - CUDA
-- Оптимизация кода компиляторами. Векторизация. 
+- Оптимизация кода компиляторами. Векторизация.
+  - [Пример](examples/auto_vectorization/main.cpp)
 - [MapReduce](MapReduce.md)
 - Пулы потоков
+  - [Пример на Java](examples/threads_pool_java/src/com/company)
+- Паттерны параллельного программирования
+  
 
 <br>
 
 ## Занятие 11. Параллельное программирование
 - Мьютексы?
+  - (Пример на C++)[examples/thread-sync1/main.cpp]
 - [OpenMP](OpenMP.md)
+  - [Пример 1](examples/MPI/main.cpp)
+  - [Пример 2](examples/openMP_1/main.cpp)
 - CUDA + pyTorch в Google Colaboratory
 
 ### Домашнее задание
