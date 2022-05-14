@@ -5,10 +5,15 @@
 - OpenCL
 - [MPI](MPI.md)
 - CUDA
+- Оптимизация кода компиляторами. Векторизация. 
+- [MapReduce](MapReduce.md)
+- Пулы потоков
+
+<br>
 
 ## Занятие 11. Параллельное программирование
 - Мьютексы?
-- OpenMP
+- [OpenMP](OpenMP.md)
 - CUDA + pyTorch в Google Colaboratory
 
 ### Домашнее задание
