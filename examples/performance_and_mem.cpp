@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Функция выделения памяти под 2-ный массив
+// Р¤СѓРЅРєС†РёСЏ РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё РїРѕРґ 2-РЅС‹Р№ РјР°СЃСЃРёРІ
 double** malloc_array(long int n)
 {
 	double** matrix = new double*[n];
@@ -13,7 +13,7 @@ double** malloc_array(long int n)
 	return matrix;
 }
 
-// Функция освобождения памяти 
+// Р¤СѓРЅРєС†РёСЏ РѕСЃРІРѕР±РѕР¶РґРµРЅРёСЏ РїР°РјСЏС‚Рё 
 void free_array(double** matrix,long int n)
 {
 	for (int i = 0; i < n; i++)
@@ -21,7 +21,7 @@ void free_array(double** matrix,long int n)
 	delete[] matrix;
 }
 
-// Функция инициализации матрицы случайными числами из [0,1]
+// Р¤СѓРЅРєС†РёСЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РјР°С‚СЂРёС†С‹ СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё РёР· [0,1]
 void rand_init_matrix(double** matrix,long int n)
 {
 	srand(time(NULL));
@@ -30,7 +30,7 @@ void rand_init_matrix(double** matrix,long int n)
 			matrix[i][j] = rand() / RAND_MAX;
 }
 
-// Функция обнуления матрицы
+// Р¤СѓРЅРєС†РёСЏ РѕР±РЅСѓР»РµРЅРёСЏ РјР°С‚СЂРёС†С‹
 void zero_init_matrix(double** matrix, long int n)
 {
 	srand(time(NULL));
@@ -44,18 +44,19 @@ int main()
 	const long int N = 1000;
 	double** A, **B, **C;
 
-// Выделение памяти под матрицы A,B,C
+// Р’С‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РјР°С‚СЂРёС†С‹ A,B,C
 	A = malloc_array(N);
 	B = malloc_array(N);
 	C = malloc_array(N);
 
-// Инициализация матриц
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°С‚СЂРёС†
 	rand_init_matrix(A, N);
 	rand_init_matrix(B, N);
 	zero_init_matrix(C, N);
 	clock_t t;
 
-// Перемножение матриц с порядком циклов jki
+// 1
+// РџРµСЂРµРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС† СЃ РїРѕСЂСЏРґРєРѕРј С†РёРєР»РѕРІ jki
 	t = clock();
 	for (int j = 0; j < N; j++)
 		for (int k = 0; k < N; k++)
@@ -63,8 +64,8 @@ int main()
 				C[i][j] += A[i][k] * B[k][j];
 	t = clock() - t;
 	cout << "Time jki loops is " << t / CLOCKS_PER_SEC << " seconds" <<  endl;
-
-// Перемножение матриц с порядком циклов ikj
+// 2
+// РџРµСЂРµРјРЅРѕР¶РµРЅРёРµ РјР°С‚СЂРёС† СЃ РїРѕСЂСЏРґРєРѕРј С†РёРєР»РѕРІ ikj
 	zero_init_matrix(C, N);
 	t = clock();
 	for (int i = 0; i < N; i++)
@@ -74,7 +75,11 @@ int main()
 	t = clock() - t;
 	cout << "Time ikj loops is " << t / CLOCKS_PER_SEC << " seconds" << endl;
 	
-// Освобождение памяти занимаемой матрицами A,B,C
+// РљР°РєРѕР№ РёР· РІР°СЂРёР°РЅС‚РѕРІ РїРµСЂРµРјРЅРѕР¶РµРЅРёСЏ РјР°С‚СЂРёС† СЂР°Р±РѕС‚Р°РµС‚ Р±С‹СЃС‚СЂРµРµ?
+// РџРѕС‡РµРјСѓ?
+
+
+// РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё Р·Р°РЅРёРјР°РµРјРѕР№ РјР°С‚СЂРёС†Р°РјРё A,B,C
 	free_array(A, N);
 	free_array(B, N);
 	free_array(C, N);
