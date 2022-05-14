@@ -5,6 +5,7 @@
 - Синхронизация процессов
   - [примеры на python](examples/process_python)
 - OpenCL
+- Intel TBB
 - [MPI](MPI.md)
   - [Пример](examples/MPI-pi-monte-carlo/main.cpp)
 - CUDA
