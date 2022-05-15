@@ -28,6 +28,7 @@
   - [Пример 1](examples/MPI/main.cpp)
   - [Пример 2](examples/openMP_1/main.cpp)
 - CUDA + pyTorch в Google Colaboratory
+  - [Пример](https://colab.research.google.com/drive/1RuhGnyJ8lDeCHXsTdTf1KHsgeq2EG4ao#scrollTo=RaKYcj86ikSB)
 
 ### Домашнее задание
 - сравните скорость вычислений numpy и pytorch в google colaboratory
