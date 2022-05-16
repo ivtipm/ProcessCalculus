@@ -22,7 +22,8 @@
 <br>
 
 ## Занятие 11. Параллельное программирование
-- Мьютексы?
+- Параллельное программирование. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
+  - Мьютексы?
   - (Пример на C++)[examples/thread-sync1/main.cpp]
 - [OpenMP](OpenMP.md)
   - [Пример 1](examples/MPI/main.cpp)
