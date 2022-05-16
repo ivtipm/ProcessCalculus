@@ -25,7 +25,7 @@
 - Параллельное программирование. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
   - Мьютексы?
   - (Пример на C++)[examples/thread-sync1/main.cpp]
-- [OpenMP](OpenMP.md)
+- [OpenMP](../OpenMP.md)
   - [Пример 1](examples/MPI/main.cpp)
   - [Пример 2](examples/openMP_1/main.cpp)
 - CUDA + pyTorch в Google Colaboratory
