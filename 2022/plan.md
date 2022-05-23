@@ -1,12 +1,39 @@
 ## Занятие 12. Параллельное программирование
--
+## Не расмотренные темы
+- Условные переменные (condidtional variables)
+  - [Пример](examples/condition_variables/main.cpp)
+- Синхронизация процессов
+  - [примеры на python](examples/process_python)
+- OpenCL
+- Intel TBB
+- [MPI](MPI.md)
+  - [Пример](examples/MPI-pi-monte-carlo/main.cpp)
+- CUDA
+- Оптимизация кода компиляторами. Векторизация.
+  - [Пример](examples/auto_vectorization/main.cpp)
+- [MapReduce](MapReduce.md)
+- Пулы потоков
+  - [Пример на Java](examples/threads_pool_java/src/com/company)
+- Паттерны параллельного программирования
+- Модель Маллера
+- Формальное описание асинхронного процесса
+  
+
+<br>
 
 ## Занятие 11. Параллельное программирование
-- OpenMP
+- Параллельное программирование. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
+  - Мьютексы?
+  - (Пример на C++)[examples/thread-sync1/main.cpp]
+- [OpenMP](../OpenMP.md)
+  - [Пример 1](examples/MPI/main.cpp)
+  - [Пример 2](examples/openMP_1/main.cpp)
 - CUDA + pyTorch в Google Colaboratory
+  - [Пример](https://colab.research.google.com/drive/1RuhGnyJ8lDeCHXsTdTf1KHsgeq2EG4ao#scrollTo=RaKYcj86ikSB)
 
 ### Домашнее задание
 - сравните скорость вычислений numpy и pytorch в google colaboratory
+- https://github.com/ivtipm/ProcessCalculus/blob/master/examples/performance_and_mem.cpp (см. вопросы в конце программы)
 - _Бонус_: CUDA
   - Решите сложную вычислительную задачу
 - _Бонус_: OpenMP
@@ -15,6 +42,7 @@
 - _Бонус_: MPI
   - решите сложную вычислительную задачу с помошью параллельного алгоритма
 - _Бонус_: Карта знаний курса ТВП
+
 
 ## Занятие 10. Параллельное программирование
 апрель 18
