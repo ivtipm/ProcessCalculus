@@ -189,6 +189,9 @@ https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/%D0%97%D0%B0%D0%
 #### Литература
 1. А. С. Камкин. Введение в формальные методы верификации программ. 2018
 
+**Дополнительно**
+Podlodka #268 -- Формальные методы и верификация программ https://podlodka.io/268
+
 <br>
 
 ## Лекция 4. Numpy. Classes.
