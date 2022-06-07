@@ -9,6 +9,7 @@
 - [MPI](MPI.md)
   - [Пример](examples/MPI-pi-monte-carlo/main.cpp)
 - CUDA
+- Python asyncio
 - Оптимизация кода компиляторами. Векторизация.
   - [Пример](examples/auto_vectorization/main.cpp)
 - [MapReduce](MapReduce.md)
