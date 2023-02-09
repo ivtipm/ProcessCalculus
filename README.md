@@ -1,10 +1,11 @@
 # ProcessCalculus
 Теория вычислительных процессов
 
+#### [Курс 2023](plans/2023/plan.md)
 
-# [Курс 2022](plans/2022/plan.md)
+#### [Курс 2022](plans/2022/plan.md)
 
-# [Курс 2021](plans/2021/plan.md)
+#### [Курс 2021](plans/2021/plan.md)
 
 ### Примерная структура курса
 0. Введение в Pyhton [https://github.com/VetrovSV/Programming]
