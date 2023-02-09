@@ -2,12 +2,15 @@ import multiprocessing
 from math import sin, sqrt
 from random import randint
 
+
 def is_prime(n):
     res = True
     for i in range(2, int(sqrt(n))):
         if n % i == 0:
             res = False
+            break
     return res
+
 
 def process_function(data_in, data_out):
     """ проверяет, является ли число из data_in простым. результат (число, true\false) записывает в data_out
