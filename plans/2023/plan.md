@@ -22,7 +22,7 @@ text = res.text     # текстовое содержимое страницы
 
 # Лекция 1. Введение в Python
 февраль 10
-- Python. Особенности. IDE Pycharm. Типы данных. Операторы. Функции
+- Python. Особенности. Типы данных. Операторы. Функции
 - Файлы со слайдами 1-5:
     - https://github.com/VetrovSV/Programming
 - примеры и материалы: https://miro.com/app/board/uXjVORmoCO0=/?invite_link_id=993701359201
