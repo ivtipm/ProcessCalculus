@@ -4,7 +4,7 @@
 
 # Лекция 4. 
 - python. Сопоставление с образцом 
-- Введение в параллельное программирование 
+- Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - CUDA?
     - https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi#scrollTo=aHI-5gaTyc6e
 
