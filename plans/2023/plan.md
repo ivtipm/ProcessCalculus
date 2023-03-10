@@ -6,6 +6,7 @@
 - python. Сопоставление с образцом 
 - Введение в параллельное программирование 
 - CUDA?
+    - https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi#scrollTo=aHI-5gaTyc6e
 
 
 ### Задание 
