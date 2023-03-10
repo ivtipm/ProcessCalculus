@@ -1,6 +1,8 @@
 # Лекция 5
+- Pyhton. Оператор yield
 - пример полносвязной нейросети на Keras 
-- 
+- CUDA? 
+  - https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi#scrollTo=aHI-5gaTyc6e
 
 #### Задание
 1. Отчёт по созданию виртуального окружения Python *(бонусное задание)*: зачем нужно? как сделать? Активировать? Дективировать? На примере одной из своих программ.
@@ -9,8 +11,7 @@
 # Лекция 4. 
 - python. Сопоставление с образцом
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
-- CUDA? 
-  - https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi#scrollTo=aHI-5gaTyc6e
+
 
 #### Задание
 Сравните время перемножения двух матриц
