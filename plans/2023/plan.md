@@ -7,7 +7,8 @@
 
 # Лекция 5
 - Pyhton. Оператор yield
-- пример полносвязной нейросети на Keras 
+- пример полносвязной нейросети на Keras
+  - https://colab.research.google.com/drive/1YtK4an7UAhnxTmhmQzZd6Eo3esfv6TL3?usp=sharing#scrollTo=HzHh0GV2S7eU
 - CUDA? 
   - https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi#scrollTo=aHI-5gaTyc6e
 
