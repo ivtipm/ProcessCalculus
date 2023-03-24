@@ -66,6 +66,8 @@
 
 Для обучения используйте параллельные вычисления на GPU, на основе CUDA.
 
+Шаблон кода: https://colab.research.google.com/drive/1josHsquNFQH1cfu2jyeFfzQw4c5uTaqG?usp=sharing
+
 # Лекция 4. 
 - python. Сопоставление с образцом
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
