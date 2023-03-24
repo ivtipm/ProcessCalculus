@@ -1,4 +1,9 @@
 # Лекция 6. Потоки в C++ и Java
+- Примеры Python (конкуренция потоков): https://github.com/ivtipm/ProcessCalculus/tree/master/examples/thread_python
+- Примеры C++: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread
+- Java: 
+  - Шпаргалка: https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads
+  - Примеры: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_java_threads/src/Main.java
 
 #### Задание (бонус). Брутфорс 
 Подберите пароль для формы авторизации. 
