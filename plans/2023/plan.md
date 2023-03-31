@@ -1,5 +1,10 @@
 # Лекция 7. Пулл потоков. Синхронизация потоков. Потоки в программах с GUI.
+- Пример распараллеливания алгоритма на n потоков
 - https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
+- Java: 
+  - Шпаргалка: https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads
+  - Примеры: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_java_threads/src/Main.java
+- https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
 #### Домашнее задание
 1. Скачайте книгу по паралельному программированию для вашего любимого языка
