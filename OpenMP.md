@@ -442,6 +442,9 @@ for (unsigned i=0; i<n; i++)
 }
 ```
 
+# См. также
+- Parallel STL
+- Intel TBB
 
 # Ссылки
 - https://www.openmp.org//
