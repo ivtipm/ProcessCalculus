@@ -1,7 +1,31 @@
+# Лекция 9. OpenMP
+- Повторение
+  - Как указать название используемой библиотеки при крмпиляции программы на C++?
+  - Подходы к созданию потоков
+  - Виды параллелизма
+  - Векторизация: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/auto_vectorization/main.cpp
+- https://github.com/ivtipm/ProcessCalculus/blob/master/OpenMP.md
+- Пример: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/openMP_1
+
+# Лекция 8. Неопределённость параллелизма и другие ошибки программирования. Синхронизация.
+- PC. lec. parallel.pdf
+- Неопределённость параллелизма. Проблема ABA. Взаимная блокировка.
+- Атомарная операция. Мьютекс. Критическая секция.
+- Примеры: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/
+  - Синхронизация с помощью мьютекса: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/thread-sync1/main.cpp
+  - Синхронизация на основе передачи сообщений: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables/main.cpp
+
+#### Домашнее задание
+- Измерьте время работы двух алгоритмов перемножения матриц: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/performance_and_mem.cpp
+  Почему один работает существенно быстрее чем второй?
+
+
+
+
 # Лекция 7. Пулл потоков. Синхронизация потоков. Потоки в программах с GUI.
 - Пример распараллеливания алгоритма на n потоков
 - https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
-- Java: 
+- Java:
   - Шпаргалка: https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads
   - Примеры: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_java_threads/src/Main.java
 - https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
@@ -18,14 +42,14 @@
 # Лекция 6. Потоки в C++ и Java
 - Примеры Python (конкуренция потоков): https://github.com/ivtipm/ProcessCalculus/tree/master/examples/thread_python
 - Примеры C++: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread
-- Java: 
+- Java:
   - Шпаргалка: https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads
   - Примеры: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_java_threads/src/Main.java
 
 #### Задание. Паралелльные вычисления
-Создать параллельный алгоритм решения некоторой задачи, в котором отдельные потоки используют общую память. 
+Создать параллельный алгоритм решения некоторой задачи, в котором отдельные потоки используют общую память.
 Параметры задачи (число подзадач) и число потоков задаются пользователем.
-Оцените время выполнения программы для разного числа потоков. 
+Оцените время выполнения программы для разного числа потоков.
 Постройте график. Определите оптимальное число потоков.
 
 Примеры задач:
@@ -38,14 +62,14 @@
 - Генетический алгоритм.
 - Алгоритмы и методы анализа данных и машинного обучения.
 
-Согласуйте язык программирования и задачу перед выполенеием задания. 
+Согласуйте язык программирования и задачу перед выполенеием задания.
 
 #### Задание (бонус). Брутфорс для веба
-Подберите пароль для формы авторизации. 
+Подберите пароль для формы авторизации.
 
 Создайте программу, которая использует несколько потоков (процессов для подбора пароля).
 
-См. логины в таблице. 
+См. логины в таблице.
 
 Адрес сервера см. в дискорде.
 
@@ -60,7 +84,7 @@
 - Pyhton. Оператор yield
 - пример полносвязной нейросети на Keras
   - https://colab.research.google.com/drive/1YtK4an7UAhnxTmhmQzZd6Eo3esfv6TL3?usp=sharing#scrollTo=HzHh0GV2S7eU
-- CUDA? 
+- CUDA?
   - https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi#scrollTo=aHI-5gaTyc6e
 
 #### Задание. Virtual Enviroment
@@ -74,7 +98,7 @@
 
 Шаблон кода: https://colab.research.google.com/drive/1josHsquNFQH1cfu2jyeFfzQw4c5uTaqG?usp=sharing
 
-# Лекция 4. 
+# Лекция 4.
 - python. Сопоставление с образцом
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
@@ -89,7 +113,7 @@
 
 
 #### Задание (бонус). CMD UI
-Создайте версию программы 5 с командным интерфейсом. Программа должна принимать набор чисел как аргумент программы при запуске. 
+Создайте версию программы 5 с командным интерфейсом. Программа должна принимать набор чисел как аргумент программы при запуске.
 
 Можно предложить свой вариант программы с командным интерфейсом.
 
@@ -120,7 +144,7 @@ Python
 Выполните задачи 5-8 (см. задание по Практике 1)
 
 #### Задание. Бонус: Веб-скраппинг.
-Создайте программу, которая записывает заголовки новостей (публикаций, постов) с выбранного вами сайта (например Новости ЗабГУ или Хабр). 
+Создайте программу, которая записывает заголовки новостей (публикаций, постов) с выбранного вами сайта (например Новости ЗабГУ или Хабр).
 Программа должна просматривать несколько десятков страниц сайта. Напишите комментарии, документацию, разбейте программу на функции.
 Дополнительные баллы, если сохраняете данные в Pandas DataFrame и:
     - программа сохраняет дату и теги новости +1
