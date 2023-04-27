@@ -3,7 +3,8 @@
 using namespace std;
 
 int main()
-{
+{   
+    // Initialize enviroment
     MPI_Init(nullptr, nullptr);
 
     // Get the number of processes
@@ -26,3 +27,24 @@ int main()
     // Finalize the MPI environment.
     MPI_Finalize();
 }
+
+
+// Дополнительные библиотеки указывать вручную не нужно
+// Для компиляции использовать отдельный компилятор, например из реализации MPICH
+
+// Установка MPICH в Debian:
+// sudo apt install mpich
+
+// Проверка:
+// mpic++ -v         # информация о версии
+
+// Компиляция:
+// mpic++ main.cpp -o main
+// -o main — имя выходного (исполняемого) файла
+
+// Запуск:
+// mpi
+
+
+
+// подробности о MPI см в файле MPI.md
