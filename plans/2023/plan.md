@@ -1,3 +1,21 @@
+## Не рассмотренные  темы
+- Условные переменные (condidtional variables)
+  - [Пример](examples/condition_variables/main.cpp)
+- OpenCL
+- Intel TBB
+- CUDA
+- Python asyncio
+- Оптимизация кода компиляторами. Векторизация.
+  - [Пример](examples/auto_vectorization/main.cpp)
+- [MapReduce](MapReduce.md)
+- Паттерны параллельного программирования
+- Модель Маллера
+- Формальное описание асинхронного процесса
+- Статические свойства сетей Петри
+- Верификация программ. Контрактное программирование. 
+- Схемы программ
+
+
 # Лекция 11-12. Сети Петри
 - [слайды](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec_Petri_Net.pdf)
 #### Задание
