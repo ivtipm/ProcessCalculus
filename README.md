@@ -1,6 +1,8 @@
 # ProcessCalculus
 Теория вычислительных процессов
 
+#### [Заочное. Курс 2024](plans/2024/plan-distance.md)
+
 #### [Курс 2023](plans/2023/plan.md)
 
 #### [Курс 2022](plans/2022/plan.md)
