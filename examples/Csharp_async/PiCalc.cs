@@ -12,6 +12,11 @@ namespace Csharp_async
    /// </summary>
     class PiCalc
     {
+        // Специальный тип, для Callback функции, через вызов которой будет сообщаться прогресс вычислений
+        public delegate void StepCallback();
+
+        public bool stop = false;
+
         double pi;
         /// <summary>
         /// количество итераций для вычислений
@@ -21,24 +26,28 @@ namespace Csharp_async
         public ulong N { get => n;
                          set { if (value > 0) n = value; } }
 
-        /// <summary> Вычисляет и возвращает число Пи </summary>
-        /// <returns> Вычисленное число Пи</returns>
-        public double calc() { pi = 0; 
+        public double calc(StepCallback upd_progress) {
+            stop = false;
+            pi = 0; 
             // todo: пояснить
             Random rnd = new Random();
             ulong inside_sector = 0;
-            for (ulong i = 0; i<n; i++)
+
+            ulong step10 = n / 10;
+            for (ulong i = 0; i<n && !stop; i++)
             {
                 double x = rnd.NextDouble();
                 double y = rnd.NextDouble();
 
                 if (x*x + y*y <= 1.0)
                     inside_sector++;
+
+                if ((i+1) % step10 == 0)
+                    upd_progress();
             }
             pi = Convert.ToDouble(inside_sector)/ Convert.ToDouble(n) * 4;
             return pi; }
 
-        /// <returns> ранее вычисленное число Пи </returns>
         public double get_pi() { return pi; }
     }
 }
