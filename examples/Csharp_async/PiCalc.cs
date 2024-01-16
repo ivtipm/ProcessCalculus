@@ -15,17 +15,21 @@ namespace Csharp_async
         // Специальный тип, для Callback функции, через вызов которой будет сообщаться прогресс вычислений
         public delegate void StepCallback();
 
+        // проверяемая в цикле вычислений переменная, отвечает за остановку метода вычислений
         public bool stop = false;
 
         double pi;
-        /// <summary>
-        /// количество итераций для вычислений
-        /// </summary>
+        /// <summary> количество итераций для вычислений </summary>
         ulong n;
 
         public ulong N { get => n;
                          set { if (value > 0) n = value; } }
 
+        /// <summary>
+        /// Вычисляет число Пи
+        /// </summary>
+        /// <param name="upd_progress">Функция обратого вызова (callback), вызывается каждые 10% итераций</param>
+        /// <returns>число Пи</returns>
         public double calc(StepCallback upd_progress) {
             stop = false;
             pi = 0; 
@@ -48,6 +52,8 @@ namespace Csharp_async
             pi = Convert.ToDouble(inside_sector)/ Convert.ToDouble(n) * 4;
             return pi; }
 
+       
+        /// <returns>Ранее вычисленное число Пи</returns>
         public double get_pi() { return pi; }
     }
 }
