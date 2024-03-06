@@ -14,10 +14,11 @@
 6 марта
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
-#### Задание. Скрапер
+#### [Задание. Скрапер](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/scraper.md)
+
 #### [Задание. Программа с GUI и дополнительным потоком](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/2024/plan.md)
 
-#### Задание. Параллельный алгоритм
+#### [Задание. Параллельный алгоритм](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/tasks_ll.md)
 
 #### Задание (бонус). Брутфорс по хэшу
 Создайте программу для подбора хэшей sha512. Пароль состоит из 7 символов цифр или маленьких букв.
