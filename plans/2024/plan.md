@@ -15,7 +15,7 @@
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
 #### Задание. Скрапер
-#### [Задание. Программа с GUI и дополнительным потоком](tas)
+#### [Задание. Программа с GUI и дополнительным потоком](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/2024/plan.md)
 
 #### Задание. Параллельный алгоритм
 
