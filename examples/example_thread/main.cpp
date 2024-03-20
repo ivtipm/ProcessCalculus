@@ -12,95 +12,99 @@
 // для использования std::thread нужно дополнительно указать
 // что к проекту должна быть присоединена библиотека pthread
 // в файле пректа: LIBS += -lpthread
+// или
+// g++ main.cpp -lpthread -o main
 
 
 using namespace std;
 
 
 // функции, которые будут выполнятся в отдельных потоках
-void foo(unsigned long n, char c){
+void foo(unsigned long long n, char c){
     // с - символ обозначающий 10% прогресса
-    unsigned long d = n/10;
+    unsigned long long d = n/10;
     double sum = 0;
-    for (unsigned i = 0; i<n; i++){
-     sum += sin(i);
-     if (i%d==0) {cout << c;
-               cout << flush;}}
+    for (unsigned long long i = 0; i<n; i++){
+        sum += sin(i);
+        if (i%d==0) {cout << c;
+            cout << flush;}}
 }
 
 
 // плохой пример использования общей переменной
-void bar_not_safe1(unsigned long n, double &sum){
+void bar_not_safe1(unsigned long long n, double &sum){
 
-    unsigned long d = n/10;
-    for (unsigned i = 0; i<n; i++){
-     sum += sin(i);                                                                                 // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
-     if (i%d==0) {cout << '*';
-        cout << flush;}}
+    unsigned long long d = n/10;
+    for (unsigned long long i = 0; i<n; i++){
+        sum += sin(i);                                                                                 // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
+        if (i%d==0) {cout << '*';
+            cout << flush;}}
 }
 
 // плохой пример использования общей переменной
-void bar_not_safe2(unsigned long n, long long &sum){
-    unsigned long d = n/10;
-    for (unsigned i = 0; i<n; i++){
-     sum = sum+1;}                                                                                     // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
+void bar_not_safe2(unsigned long long n, unsigned long long &sum){
+    unsigned long long d = n/10;
+    for (unsigned long long i = 0; i<n; i++){
+        sum = sum+1;}                                                                                     // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
 }
 
 
 
 
-const unsigned long N = 300000000; // число слагаемых
+const unsigned long long N = 300'000'000; // число слагаемых
 
 // Простой пример запуска функции в отдельном потоке
 void example1(){
     auto t0 = chrono::system_clock::now(); // запомним текущее время, для вычисления времени работы
 
-     // поток - это тоже класс std::thread
-     // первый параметр - фказатель на функцию
-     // остальные - параметры функции
+    // поток - это тоже класс std::thread
+    // первый параметр - фказатель на функцию
+    // остальные - параметры функции
 
-     // потоки запускаются сразу после создания объекта (если в конструктор был передан указатель на функцию)
-     // два вызова функции foo будут выполнены параллельно
-     std::thread th1(foo, N, '|');
-     std::thread th2(foo, N, '.');
+    // потоки запускаются сразу после создания объекта (если в конструктор был передан указатель на функцию)
+    // два вызова функции foo будут выполнены параллельно
+    std::thread th1(foo, N, '|');
+    std::thread th2(foo, N, '.');
 
 
-     // ожидание завершения первого, _затем_ второго потока
-     th1.join();
-     th2.join();
-     // см. также detach
+    // ожидание завершения первого, _затем_ второго потока
+    th1.join();
+    th2.join();
+    // см. также detach
 
-     // если не ожидать завершения потоков,
-     // то они могут быть завершены раньше времени автоматически
-     // в момент, когда завершится основной поток программы
+    // если не ожидать завершения потоков,
+    // то они могут быть завершены раньше времени автоматически
+    // в момент, когда завершится основной поток программы
 
-     auto t1 = chrono::system_clock::now();
-     cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
-          << "ms" <<endl;
+    auto t1 = chrono::system_clock::now();
+    cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
+         << "ms" <<endl;
 
-     cout << endl;
+    cout << endl;
 }
 
 
 // Плохой пример запуска потока
 void example1_1_bad(){
-     std::thread th1(foo, N, '|');
-     // почти наверняка текущая функция завершится раньше, чем функция потока
-     // при завещении текущей функции будет уничтожен объект th1,
-     // что приведёт к аварийному завершению потока: terminate called without an active exception
+    std::thread th1(foo, N, '|');
+    // почти наверняка текущая функция завершится раньше, чем функция потока
+    // при завещении текущей функции будет уничтожен объект th1,
+    // что приведёт к аварийному завершению потока: terminate called without an active exception
+    // исправление:
+//    th1.join();
 }
 
 
 
 // Хороший пример запуска потока
 void example1_1_good(){
-     std::thread th1(foo, N, '|');
-     // отсоединение потока от объекта th1
-     // теперь уничтожение th1 не приведёт к аварийному завершению потока
-     th1.detach();
-     // но теперь нужно проследить чтобы основной поток не завершился раньше вновь созданного
+    std::thread th1(foo, N, '|');
+    // отсоединение потока от объекта th1
+    // теперь уничтожение th1 не приведёт к аварийному завершению потока
+    th1.detach();
+    // но теперь нужно проследить чтобы основной поток не завершился раньше вновь созданного
     cout << "is joinable: " << th1.joinable() << endl;
-     // https://en.cppreference.com/w/cpp/thread/thread/detach
+    // https://en.cppreference.com/w/cpp/thread/thread/detach
 }
 
 
@@ -120,31 +124,35 @@ void example2(){
     cout << endl << "sum = " << sum << endl;
     auto t1 = chrono::system_clock::now();
     cout << endl << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
-      << "ms" <<endl;
+         << "ms" <<endl;
 }
 
-// пример состояния гонки
+
+
+
+// пример состояния гонки (неопределённость параллелизма)
 void example2_1(){
-    long long s;
-    std::thread th1(bar_not_safe2, 100000000, std::ref(s));
-    std::thread th2(bar_not_safe2, 100000000, std::ref(s));
+    unsigned long long s = 0;
+    std::thread th1(bar_not_safe2, 1'000'000'000, std::ref(s));
+    std::thread th2(bar_not_safe2, 1'000'000'000, std::ref(s));
 
     // здесь вызывается join только для того,
     // чтобы основной поток не завершился раньше вновь созданного
     th1.join();
     th2.join();
+    // s = 200'000'000
     cout << s;
 }
 
 
 // функция потока, которая возвращает значение
-float baz(unsigned long n){
-    unsigned long d = n/10;
+float baz(unsigned long long n){
+    unsigned long long d = n/10;
     float sum = 0;
-    for (unsigned i = 0; i<n; i++){
-     sum += sin(i);
-     if (i%d==0) {cout << '.';
-               cout << flush;}}
+    for (unsigned long long i = 0; i<n; i++){
+        sum += sin(i);
+        if (i%d==0) {cout << '.';
+            cout << flush;}}
     return sum;
 }
 
@@ -172,13 +180,14 @@ void example3_1(){
     int d = N/20;
     for (unsigned i = 0; i<N; i++){
         if ( result.valid() ){
-            cout << "\n" << "второй поток вернул результат: " << result.get() << endl;
+            cout << "\n" << "второй поток вернул результат: "
+                 << result.get() << endl;
         }
         sum += sin(i);
         if (i % N == 0) cout << ".";
     }
 
-//    result.wait();                              // блокирующее ожидание завершения потока
+    //    result.wait();                              // блокирующее ожидание завершения потока
     cout << "\nsum = " << result.get() << endl; // получение и вывод результата
 }
 
@@ -190,7 +199,7 @@ void bar2(unsigned n, void(*callback)(float s)  ){
     // указатель на функцию можено передавать и через класс-обёртку std::function
     float sum = 0;
     for (unsigned i = 0; i<n; i++)
-     sum += sin(i);
+        sum += sin(i);
 
     callback(sum);
 }

@@ -10,18 +10,24 @@
 - Описанию и анализу асинхронных процессов с помощью сетей Петри
 
 
-# Лекция 6
-13 марта
-- Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
-- Примеры использования потоков в C++: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread
+# Лекция 7. Параллельное программирование
+20 марта
+- Ошибки параллельного программирвания. https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - Примеры использования потоков в C++ и Qt: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_qthread
 - Примеры использования потоков в Java: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_threads
 - Примеры использования потоков в Java и JavaFX: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_thread-gui
 - Примеры использования потоков в С#, асинхронные методы: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/Csharp_async
 
 
+# Лекция 6. Параллельное программирование
+13 марта
+- Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
+- Примеры использования потоков в C++: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread
 
-# Лекция 5.
+
+
+
+# Лекция 5. Параллельное программирование
 6 марта
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
