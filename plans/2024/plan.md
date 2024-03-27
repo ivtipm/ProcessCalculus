@@ -9,6 +9,21 @@
 - Созданию распределённых алгоритмов с использованием библиотеки MPI
 - Описанию и анализу асинхронных процессов с помощью сетей Петри
 
+# Лекция 8. Параллельное программирование
+- Синхронизация с помощью мьютекса: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/thread-sync1/main.cpp
+- Синхронизация на основе передачи сообщений: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables/main.cpp
+- https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
+
+Java:
+- Шпаргалка: https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads
+- Примеры: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/example_java_threads/src/Main.java
+- https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
+
+
+#### Домашнее задание
+Измерьте время работы двух алгоритмов перемножения матриц: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/performance_and_mem.cpp Почему один работает существенно быстрее чем второй?
+
+
 
 # Лекция 7. Параллельное программирование
 20 марта
