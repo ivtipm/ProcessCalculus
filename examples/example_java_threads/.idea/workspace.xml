@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3cc57212-f1b6-4043-a4aa-ada2f815aa71" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../example_qthread/mainwindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/mainwindow.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_qthread/mainwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/mainwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_qthread/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/mainwindow.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_qthread/worker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/worker.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_qthread/worker.h" beforeDir="false" afterPath="$PROJECT_DIR$/../example_qthread/worker.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_thread/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../example_thread/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,17 +23,25 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="1qnUymm1TJaKkxPVffpiTCJSCgR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../example_java_thread-gui" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/s/w/prep/computer science/ProcessCalculus/examples/example_java_threads&quot;
+  }
+}</component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -42,6 +50,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-78a6f59c" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">

@@ -9,7 +9,7 @@ import java.util.concurrent.*;  // Для запуска функции возв
 public class Main {
 
 
-    private static int n = 10000000;
+    private static int n = 10_000_000;
 
 
     // функция для выполнения в потоке
