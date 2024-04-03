@@ -9,7 +9,14 @@
 - Созданию распределённых алгоритмов с использованием библиотеки MPI
 - Описанию и анализу асинхронных процессов с помощью сетей Петри
 
+# Лекция 9. 
+3 апреля
+- Пул потоков. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.mdъъhttps://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
+- OpenMP?
+- 
+
 # Лекция 8. Параллельное программирование
+27 апреля
 - Синхронизация с помощью мьютекса: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/thread-sync1/main.cpp
 - Синхронизация на основе передачи сообщений: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables/main.cpp
 - https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
