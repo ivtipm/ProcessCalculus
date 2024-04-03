@@ -16,6 +16,13 @@
   - https://github.com/ivtipm/ProcessCalculus/blob/master/OpenMP.md
 
 
+#### Домашнее задание. Пул потоков
+1. Создайте версию программы с параллельными потоками (см. [Задание. Параллельный алгоритм](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/tasks_ll.md), но используйте пул потоков.
+
+2. Дополните [Программу с GUI и дополнительным потоком](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/task_another_thread.md): добавьте возможность запустить вычисления в пуле потоков.
+
+
+
 # Лекция 8. Параллельное программирование
 27 апреля
 - Синхронизация с помощью мьютекса: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/thread-sync1/main.cpp
@@ -28,8 +35,7 @@ Java:
 - https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
 
-#### Домашнее задание
-Измерьте время работы двух алгоритмов перемножения матриц: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/performance_and_mem.cpp Почему один работает существенно быстрее чем второй?
+
 
 
 
@@ -56,7 +62,7 @@ Java:
 
 #### [Задание. Скрапер](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/scraper.md)
 
-#### [Задание. Программа с GUI и дополнительным потоком](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/2024/plan.md)
+#### [Задание. Программа с GUI и дополнительным потоком](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/task_another_thread.md)
 
 #### [Задание. Параллельный алгоритм](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/tasks_ll.md)
 
