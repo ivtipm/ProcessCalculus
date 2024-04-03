@@ -11,9 +11,10 @@
 
 # Лекция 9. 
 3 апреля
-- Пул потоков. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.mdъъhttps://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
+- Пул потоков. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
 - OpenMP?
-- 
+  - https://github.com/ivtipm/ProcessCalculus/blob/master/OpenMP.md
+
 
 # Лекция 8. Параллельное программирование
 27 апреля
