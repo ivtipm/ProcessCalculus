@@ -9,11 +9,27 @@
 - Созданию распределённых алгоритмов с использованием библиотеки MPI
 - Описанию и анализу асинхронных процессов с помощью сетей Петри
 
-# Лекция 9. 
+
+
+# Лекция 10. OpenMP
+10 апреля
+- Векторизация: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/auto_vectorization/main.cpp
+- OpenMP
+  - https://github.com/ivtipm/ProcessCalculus/blob/master/OpenMP.md
+
+- Пример: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/openMP_1
+
+
+#### Домашнее задание. OpenMP
+1. Создайте параллельный алгоритм для решения одной или нескольких задач из первого домашнего задания (задачи номерами 5-8). Используйте OpenMP и распараллеливание циклов.
+2. Решите произвольную задачу используя библиотеку OpenMP
+
+
+
+# Лекция 9. Пул потоков
 3 апреля
 - Пул потоков. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
-- OpenMP?
-  - https://github.com/ivtipm/ProcessCalculus/blob/master/OpenMP.md
+
 
 
 #### Домашнее задание. Пул потоков
