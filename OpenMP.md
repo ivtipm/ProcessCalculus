@@ -213,10 +213,10 @@ https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/m
    // секция кода, выполняемая одним потоком
    #pragma omp single     
     {
-        my_value = my_value + 42 // Значение задаётся только в одном потоке 
+        my_value = my_value + 42; // Значение задаётся только в одном потоке 
         // signle
     }
-    // Значение my_value 
+    // my_value = 42;
 }
 ```
 
