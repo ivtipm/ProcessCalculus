@@ -11,6 +11,11 @@
 
 
 
+# Лекция 11. OpenMP. MPI.
+17 апреля
+https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md
+
+
 # Лекция 10. OpenMP
 10 апреля
 - Векторизация: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/auto_vectorization/main.cpp
@@ -29,7 +34,7 @@
 # Лекция 9. Пул потоков
 3 апреля
 - Пул потоков. https://github.com/ivtipm/ProcessCalculus/blob/master/ll2.md
-
+- https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads
 
 
 #### Домашнее задание. Пул потоков
