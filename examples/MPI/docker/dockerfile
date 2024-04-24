@@ -1,0 +1,49 @@
+# название базового образа
+from debian:bookworm-slim
+
+# run - выполнить команды внутри образа для его построения
+# apt update - обновление данных о репозитории пакетов ОС, apt install установка пакетов 
+run apt update && apt install -y \
+mpich \
+libopenmpi-dev \
+openssh-server \
+gcc \
+bash \
+&& rm -rf /var/lib/apt/lists/*
+
+# openssh-server - сервер для подключения по ssh
+# bash - командная оболочка
+
+# включить авторизацию по паролю
+# папка для работы sshd
+run echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config 
+run mkdir /var/run/sshd 
+run ssh-keygen -A
+
+# задать пароль пользователя
+run useradd -ms /bin/bash user 
+run echo "user:user" | chpasswd 
+
+# копировать папку example в контейнер по пути /home/user/example_mpi
+copy example /home/user/example_mpi
+# задать рабочую папку для последующего запуска mpic++
+workdir /home/user/example_mpi
+# скомпилировать пример (для тестирования образа)
+run mpic++ example_mpi.cpp -o example_mpi
+
+# задать рабочую папку для программы, которая будет запущена в контейнере
+workdir /home/user
+# задать текущего пользователя
+user root
+# запустить основной процесс контейнера - ssh-сервер
+cmd ["/usr/sbin/sshd", "-D"]
+
+
+# docker build -t pc_mpi . 
+# docker run -p 10022:22 --rm --name pc_mpi -d pc_mpi 
+# --rm удалить контейнер после запуска
+# --name имя контейнера
+# -d режим сервиса
+
+# ssh user@localhost -p 10022
+# password: user

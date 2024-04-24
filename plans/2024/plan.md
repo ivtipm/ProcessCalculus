@@ -12,11 +12,16 @@
 
 # Лекция 12. OpenMP. MPI.
 24 апреля
-https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md
+- https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md
+- Пример: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
 
 #### Домашнее задание. MPI
 1. Решите произвольную задачу используя библиотеку MPI
 2. Протестируйте программу запустив её на одной и нескольких машинах.
+
+
+## Домашнее задание. Тестовый кластер на основе контейнеров Docker
+Создайте кластер для на основе контейнеров Docker для тестирования распределённых вычислений.
 
 
 # Лекция 11. OpenMP. MPI.
