@@ -13,7 +13,8 @@
 # Лекция 12. OpenMP. MPI.
 24 апреля
 - https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md
-- Пример: https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
+- Пример 1. Распределённые выичсления числа Пи. https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
+- Пример 2. Простая программа и dockerfile. https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
 
 #### Домашнее задание. MPI
 1. Решите произвольную задачу используя библиотеку MPI
