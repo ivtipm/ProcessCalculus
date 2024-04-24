@@ -29,7 +29,9 @@ Message Passing Interface (MPI, интерфейс передачи сообще
     - https://www.mpi-forum.org/
     - новые версии MPICH доступны только для Linux.
   - OpenMPI
-  - MicrosoftMPI (winmpi)
+  - MicrosoftMPI
+  - pyMPI (https://mpi4py.readthedocs.io/en/stable/)
+  - См. также реализации для R, Julia, Matlab. 
 
 ### Скачать
 https://www.mpich.org/downloads/
