@@ -13,13 +13,19 @@
 # Лекция 12. Сети Петри
 8 мая
 - [слайды](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec_Petri_Net.pdf)
+- Примеры: https://miro.com/app/board/uXjVORmoCO0=
+
+См. также - автоматы
+- https://habr.com/ru/articles/273393/
+- https://ru.wikipedia.org/wiki/%D0%98%D0%B3%D1%80%D0%B0_%C2%AB%D0%96%D0%B8%D0%B7%D0%BD%D1%8C%C2%BB
+- https://playgameoflife.com/
 
 #### Задание
 1. https://github.com/ivtipm/ProcessCalculus/blob/master/%D0%97%D0%B0%D0%B4%D0%B0%D0%B8%D0%B5.%20%D0%A1%D0%B5%D1%82%D1%8C%20%D0%9F%D0%B5%D1%82%D1%80%D0%B8.pdf
 2. Выберете такую начальную маркировку, чтобы получилось дерево переходов глубиной больше трёх. Постройте это дерево как минимум до третьего уровня. Сделайте выводы о динамических свойствах данной сети Петри.
 
 #### Бонусное задание
-1. Запустите программу для выполнения сети петри из исходников. См. ссылки на программы в дискорде
+1. Запустите программу для выполнения сети Петри из исходников. См. ссылки на программы в дискорде
 2. Доработайте программы
 
 
@@ -90,7 +96,7 @@ Java:
 
 # Лекция 7. Параллельное программирование
 20 марта
-- Ошибки параллельного программирвания. https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
+- Ошибки параллельного программирования. https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - Примеры использования потоков в C++ и Qt: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_qthread
 - Примеры использования потоков в Java: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_threads
 - Примеры использования потоков в Java и JavaFX: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_thread-gui
@@ -165,7 +171,7 @@ Java:
 
 О PyTorch: https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi?usp=sharing
 
-См. также библиотеку Python asyncio для асинзронного программирования.
+См. также библиотеку Python asyncio для асинхронного программирования.
 
 #### Задание (бонус). CMD UI
 Создайте версию программы 5 с командным интерфейсом. Программа должна принимать набор чисел как аргумент программы при запуске.
