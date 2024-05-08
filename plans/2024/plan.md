@@ -10,10 +10,24 @@
 - Описанию и анализу асинхронных процессов с помощью сетей Петри
 
 
+# Лекция 12. Сети Петри
+8 мая
+- [слайды](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec_Petri_Net.pdf)
+
+#### Задание
+1. https://github.com/ivtipm/ProcessCalculus/blob/master/%D0%97%D0%B0%D0%B4%D0%B0%D0%B8%D0%B5.%20%D0%A1%D0%B5%D1%82%D1%8C%20%D0%9F%D0%B5%D1%82%D1%80%D0%B8.pdf
+2. Выберете такую начальную маркировку, чтобы получилось дерево переходов глубиной больше трёх. Постройте это дерево как минимум до третьего уровня. Сделайте выводы о динамических свойствах данной сети Петри.
+
+#### Бонусное задание
+1. Запустите программу для выполнения сети петри из исходников. См. ссылки на программы в дискорде
+2. Доработайте программы
+
+
+
 # Лекция 12. OpenMP. MPI.
 24 апреля
 - https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md
-- Пример 1. Распределённые выичсления числа Пи. https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
+- Пример 1. Распределённые вычисления числа Пи. https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
 - Пример 2. Простая программа и dockerfile. https://github.com/ivtipm/ProcessCalculus/blob/master/examples/MPI-pi-monte-carlo/main.cpp
 
 #### Домашнее задание. MPI
