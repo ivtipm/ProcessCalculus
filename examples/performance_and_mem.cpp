@@ -86,3 +86,7 @@ int main()
 
 	return 0;
 }
+
+
+
+// См. время выполнения различных операций, включая доступ к разным видам памяти (регистры, кэш, RAM): https://docs.google.com/presentation/d/1ofbDxk9cbT4ABdCmGFqftz3u166DV1KkrJGU_Z7E6Kg/edit#slide=id.g2bac33147ba_0_6
