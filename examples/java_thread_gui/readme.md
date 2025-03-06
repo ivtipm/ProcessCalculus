@@ -65,4 +65,7 @@ ProcessBuilder processBuilder = new ProcessBuilder( cmd );
     while ((line = reader.readLine()) != null) {
         output.append(line).append("\n");
     }
+
+    // Ожидаем завершения процесса и получаем код возврата
+    int exitCode = process.waitFor();
 ```
