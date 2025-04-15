@@ -11,7 +11,7 @@ public class MainWindowController {
 
     @FXML Label status_label;
 
-    private static int N = 100000000;
+    private static int N = 100_000_000;
     private Worker w = new Worker(N);
 
 
