@@ -1,0 +1,18 @@
+*.user
+*.user.*
+*.class
+
+build-*-Debug
+build-*-Release
+
+.idea*
+
+# исполняемый файл
+main
+out/
+
+main-*
+*.gcda
+*.out
+
+javafx-sdk-*/
