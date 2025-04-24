@@ -133,7 +133,7 @@ void example4_shared_private_atomic_reduction(){
 }
 
 
-// сравнение времени выполнения
+// сравнение времени выполнения параллельного цикла и последовательного
 void example2_ll_for2(){
     double sum = 0;
     const unsigned long N = 1e8;
@@ -160,24 +160,29 @@ void example2_ll_for2(){
 }
 
 
-// возвращает true если число простое
+/// Пример создания Задач (tasks); 
+/// Задача - определить является ли число из списка простым
+
+/// возвращает true если число простое
 bool is_prime(unsigned n){
     for (unsigned i=2; i<(int)sqrt(n); i++){
         if (n % i == 0) return false;
     } return true;
 }
 
-// Элемент списка
+/// Узел односвязного списка
 struct Node{
     int x;
     bool is_prime;
     Node* next; };
 
+/// Проверяет число в узле на простоту, записывает результат проверки в узел
 void set_node_isprime(Node *node){
     node->is_prime = is_prime(node->x);
 }
 
-// Задачи
+
+/// Пример использования задач:
 void example_tasks(){
 
 
@@ -185,7 +190,7 @@ void example_tasks(){
     head = new Node;
     head->x = rand();
 
-    unsigned N = 1000000;
+    unsigned N = 1'000'000;
     Node *node = head;
     for (unsigned i =1; i <N; i++) {
         Node *tmp = new Node;
@@ -202,7 +207,7 @@ void example_tasks(){
 //    }
 
 
-       cout << "threads: " << omp_get_num_threads() << endl;
+    cout << "threads: " << omp_get_num_threads() << endl;
     double t0 = omp_get_wtime();
     #pragma omp parallel
     {
