@@ -79,26 +79,30 @@ void example3_ll_sections(){
 }
 
 
-// синхронизация во время работы с переменными
+/// Пример 4. Синхронизация, использование общих переменных
 void example4_shared_private_atomic_reduction(){
     double sum = 0.0;
 
-    // плохой пример
+    // пример с ошибками:
     #pragma omp parallel for private(sum)
     for (unsigned i = 0; i< 100; i++) {
         sum += 1;
     }
     cout << "private sum: " << sum << endl;
+    // Ошибки:                                                                                                Каждый поток получит локальную копию переменной sum, будет её изменять, но после завершения цикла эти переменные уничтожатся
 
-    // плохой пример
+
+    // пример с ошибками:
     sum = 0;
     #pragma omp parallel for shared(sum)
     for (unsigned i = 0; i< 100; i++) {
         sum += 1;
     }
     cout << "shared sum: " << sum << endl;
+     // Ошибки:                                                                                                 Здесь используется неатомарная операция над общей для потоков переменной. Возникает неопределённость параллелизма.
 
-    // медленный пример
+
+    // Пример без ошибок, но медленный.
     sum = 0;
     #pragma omp parallel for
     for (unsigned i = 0; i< 100; i++) {
@@ -115,7 +119,7 @@ void example4_shared_private_atomic_reduction(){
     // при этом правая часть оператора = может выполнятся ||
 
 
-    // хороший пример
+    // Хороший пример
     sum = 0;
     #pragma omp parallel for reduction(+:sum)
     for (unsigned i = 0; i< 100; i++) {
@@ -123,7 +127,7 @@ void example4_shared_private_atomic_reduction(){
     }
     cout << "reduction sum: " << sum << endl;
 
-//    reduction(+:sum):
+   // reduction(+:sum):
    // сделает локальную копию sum в каждом потоке
    // после завершения всех потоков выполнит указанное действие (+) для всех локальных копий
 }
