@@ -1,3 +1,16 @@
+/*
+Набор примеров использования OpenMP
+
+Для компиляции нужно указать ключ -fopenmp 
+Иначе не будут подключены только заголовочный файл, но не статические библиотеки OpenMP с реализациями функций библиотеки
+См. СMakeLists.txt или  openMP_1.pro (если программа запускается в QtCreator)
+
+Подготовка сборки Cmake:
+> cmake -B build
+Сборка:
+> cmake --build build
+
+*/
 #include <iostream>
 #include <math.h>
 #include <vector>
@@ -9,12 +22,14 @@ using namespace std;
 using chrono::system_clock;
 using Time = decltype ( chrono::system_clock::now() );
 
+
+/// Простая функция для вывода времени работы программы в миллисекундах
 void print_dt(Time t0){
     auto t1 = system_clock::now();
     cout << "dt = " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" <<endl;}
 
 
-// простой пример распараллеливания кода
+/// Пример 1. Простое параллельное выполнение блока кода
 void example1_hello_world(){
     // напечатаем текущее число потоков
     cout << "threads: " << omp_get_num_threads() << endl;                  // 1
@@ -22,7 +37,7 @@ void example1_hello_world(){
     // запуск кода в фигурных скобках в 4 потока -- он выполнится 4 раза.
     #pragma omp parallel num_threads(4)
     {
-//    cout << "threads: " << omp_get_num_threads() << endl;                // 4
+    // cout << "threads: " << omp_get_num_threads() << endl;                // 4
     cout << "Hello, || World from thread" << omp_get_thread_num() << "!" << endl;
     }
 
@@ -31,7 +46,7 @@ void example1_hello_world(){
 }
 
 
-// распараллеливание цикла
+/// Пример 2. Распараллеливание цикла
 void example2_ll_for(){
 
     #pragma omp parallel for
@@ -48,7 +63,7 @@ void example2_ll_for(){
 
 
 
-// явное || разных блоков кода
+/// Пример 3. Два блока кода (section) будет выполняться параллельно, каждый своим потоком
 void example3_ll_sections(){
 
     #pragma omp parallel sections
@@ -61,15 +76,10 @@ void example3_ll_sections(){
         for (unsigned i = 1; i<100; i+=2)
             cout << i << endl;
     }
-
-    // pragma omp parallel for:
-    // 1. определит оптимальное число потоков
-    // 2. сделает из тела цикла отдельную функцию
-    // 3. разделит общее число итераций цикла между потоками
 }
 
 
-// синхронизация во время работы с перемнными
+// синхронизация во время работы с переменными
 void example4_shared_private_atomic_reduction(){
     double sum = 0.0;
 
@@ -190,7 +200,7 @@ void example_tasks(){
 
        cout << "threads: " << omp_get_num_threads() << endl;
     double t0 = omp_get_wtime();
-    #pragma omp parallel threads(8);
+    #pragma omp parallel
     {
         cout << "threads: " << omp_get_num_threads() << endl;
         #pragma omp single nowait
