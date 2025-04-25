@@ -32,7 +32,19 @@
 - профилирование в Visual Studio: https://docs.microsoft.com/ru-ru/visualstudio/profiling/beginners-guide-to-performance-profiling?view=vs-2019
 
 ## Задержка обращения к памяти
-![](img/mem_hierarchy.png)
+<!-- ![](img/mem_hierarchy.png) -->
+
+<img src="img/mem_hierarchy.png" width=50%>
+
+Кэши процессора:
+- L1 обычно располагается максимально близко к исполнительным блокам ядра. Один на ядро. Делиться на:
+  - Кэш инструкций (L1-I, I-Cache)
+  - Кэш данных (L1-D, D-Cache)
+- L2 обычно один на ядро, но может быть общим для нескольких ядер.
+- L3 обычно один на процессоре.
+
+<img src="img/CPU_AMD_Zen_Architecture.png" width=50% alt="AMD Zen Architecture">\
+AMD Zen Architecture
 
 В эту иерархию памяти, как самый нижний слой, также можно добавить удалённые хранилища данных и сетевые кэши для них. 
 
