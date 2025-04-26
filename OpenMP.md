@@ -158,6 +158,8 @@ int main(){
 }
 ```
 
+Пример приведён для демонстрации подхода SPMD. См. ниже более простой пример созданий параллельной версии for.
+
 #### Общие и локальные переменные для потоков
 Все переменные, созданные до директивы parallel
 являются общими для всех потоков. Переменные, созданные внутри потока являются локальными (приватными) и доступны только текущему потоку.
@@ -166,16 +168,12 @@ int main(){
 ```C++
 int value = 123;
 
-#
 #pragma omp parallel
 {
  value++;
  std::cout << value++ << std::endl;
 }
 ```
-
-Пример:
-https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/materials/Lecture_OpenMP_Summer2008_uL0moR8.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUKOEY5ZX6VXK3RWN%2F20210413%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20210413T172319Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=b5212372826ad3e7512514259d3f4c53e88dd07edf1bc8d1cf796bc3b8b5abd8
 
 
 ### Директивы компилятора для || вычислений
@@ -185,8 +183,20 @@ https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/m
 - `parallel` 	Defines a parallel region, which is code that will be executed by multiple threads in parallel.
 - `for` 	Causes the work done in a for loop inside a parallel region to be divided among threads.
 - `sections` 	Identifies code sections to be divided among all threads.
-- `single` 	Lets you specify that a section of code should be executed on a single thread, not necessarily the master thread.
-
+- `single`\
+Гарантирует выполнение блока кода только одним произвольным потоком команды, остальные потоки по умолчанию ждут окончания этого блока, если не указан `nowait`. Полезна для однократной инициализации или ввода-вывода.
+  ```cpp
+  #pragma omp parallel
+  {
+      #pragma omp single
+      {
+          init_shared_resource();
+      }
+      // остальные потоки ждут, пока ресурс не будет инициализирован
+      use_shared_resource();
+  }
+  ```
+   См. также директиву `master`.
 #### parallel
 ```C++
 #pragma omp parallel
@@ -204,7 +214,6 @@ https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/m
 - директивы `num_threads( )`. Высший приоритет, но только для последующей || области
 
 #### Вложенный параллелизм
-По умолчанию
 
 Разрешить вложенный параллелизм :
 - переменная среды окружения: `OMP_NESTED = true`
@@ -272,29 +281,40 @@ https://lms-vault.s3.amazonaws.com/private/1/courses/2016-spring/spb-hp-course/m
 ```
 
 #### master
-Выполнится главным потоком. В отличии от single нет будет неявной синхронизации потоков.
+Заставляет блок кода выполняться исключительно главным (master) потоком с `omp_get_thread_num() == 0`, при этом не создавая неявного барьера в конце в отличии от single. Это удобно, когда нужно, чтобы только главный поток выполнил какую-то работу без остановки остальных.
+```cpp
+#pragma omp parallel
+{
+    #pragma omp master
+    {
+        printf("Only master thread prints this\n");
+    }
+    // другие потоки не ждут окончания master-блока и могут продолжать работу
+    do_work();
+}
+```
 
 ### Разделеное и совместное использование перемеренных
 - **Общие переменные** — как глобальные переменные, доступны всем потокам. Все переменные, объявленные вне || области считаются общими. Исключения — счётчики циклов.
 
-```C++
-#pragma omp parallel shared(A, B, C)
-```
-Не защищены от неопределённости параллелизма.
+  ```C++
+  #pragma omp parallel shared(A, B, C)
+  ```
+  Не защищены от неопределённости параллелизма.
 
 - **Локальные переменные** — у каждого потока своя копия переменной. Даже если переменная объявлена в общей области видимости. Начальное значение переменной не определено. Все переменные объявленные в || области считаются локальными.
-```C++
-int A = -1, b;
-#pragma omp parallel private(A, b)
-{
- A = rand();
- printf("A = %d\n", A);    // будет выведено несколько (по числу потоков) значений
-}
+  ```C++
+  int A = -1, b;
+  #pragma omp parallel private(A, b)
+  {
+  A = rand();
+  printf("A = %d\n", A);    // будет выведено несколько (по числу потоков) значений
+  }
 
- printf("A = %d\n", A);  // будет выведено -1
-```
+  printf("A = %d\n", A);  // будет выведено -1
+  ```
 
-**см. также** `firstprivate`, `lastprivate`,
+  **см. также** `firstprivate`, `lastprivate`
 
 **reduction (операция : список переменных)**
 - создаёт инициализированные копии глобальной переменной в каждом потоке
@@ -305,15 +325,96 @@ For master and synchronization:
 
 - `master` 	Specifies that only the master thread should execute a section of the program.
 
-- `critical` 	Specifies that code is only executed on one thread at a time.
+- `critical`\
+Cоздаёт критическую секцию, гарантируя, что только один поток выполняет код внутри блока в любой момент времени. В отличие от `atomic`, она может делать потокобезопасным произвольный фрагмент кода, но менее эффективна для простых операций.
 
-- `barrier` 	Synchronizes all threads in a team; all threads pause at the barrier, until all threads execute the barrier.
+```cpp
+int max_val = 0;
+#pragma omp parallel for
 
-- `atomic` 	Specifies that a memory location that will be updated atomically.
+for(int i = 0; i < N; ++i) {
+    int local = compute(i);
+    #pragma omp critical
+    {
+        if(local > max_val) max_val = local;
+    }
+}
+```
 
-- `flush` 	Specifies that all threads have the same view of memory for all shared objects.
+`barrier`\
+Заставляет все потоки дождаться друг друга в точке синхронизации, прежде чем продолжить выполнение дальше. Это полезно, когда необходимо убедиться, что все предшествующие операции завершены перед переходом к следующему этапу.
+```cpp
+#pragma omp parallel num_threads(3)
+{
+    // Шаг 1: каждый поток делает свою работу
+    compute_part();
+    #pragma omp barrier
+    // Шаг 2: работа, которая должна начаться только после завершения первого шага всеми потоками
+    finalize();
+}
+```
+Все четыре потока остановятся на #pragma omp barrier и продолжат только после того, как последний из них достигнет этой точки
 
-- `ordered` 	Specifies that code under a parallelized for loop should be executed like a sequential loop.
+```
+compute_part   finalize
+=======----- | =====--
+============ | ====---
+===--------- | =======
+           barier
+```
+
+`atomic`\
+Гарантирует атомарное обновление одной переменной без необходимости захвата полноценной критической секции.
+Особенно эффективна для простых операций, таких как инкремент или декремент, поскольку многие архитектуры поддерживают аппаратные атомарные команды
+
+Пример:
+```cpp
+int sum = 0;
+#pragma omp parallel for
+for(int i = 0; i < N; ++i) {
+    #pragma omp atomic
+        sum += a[i];
+}
+```
+Стоит отметить, что приведённый алгоритм будет не эффективным из-за критической секции, в которой совершается сравнительно много работы по сравнению с остальным кодом.
+
+
+`flush`\
+  Cинхронизирует видимость памяти, гарантируя, что до и после директивы все потоки увидят согласованные значения указанных (или всех) глобальных переменных. Это важно если нужно учитывать низкоуровневые эффекты: несогласованности значений переменной из-за обновления значения только в регистре или кэше процессора, т.к. они могут быть у каждого потока свои, в отличии от RAM. `flush` работает только с разделяемыми (shared) переменными.
+  ```cpp
+    int x = 0;
+
+    #pragma omp parallel num_threads(2) shared(x)
+    {
+        if (omp_get_thread_num() == 0) {
+            // Producer: пишет и сбрасывает значение x
+            x = 42;
+            #pragma omp flush(x)
+        }
+        else {
+            // Consumer: сбрасывает копию из памяти и читает x
+            #pragma omp flush(x);
+            printf("x = %d\n", x);
+        }
+    }
+    return 0;
+  }
+  ```
+
+`ordered`\
+  Внутри for-цикла с ordered-условием обеспечивает выполнение указанных блоков в том же порядке, что и итерации в последовательном цикле. При использовании потоки могут продолжать работать параллельно вне ordered-блоков, но упорядоченно входить в них.
+  ```cpp
+  #pragma omp parallel for ordered schedule(static)
+  for(int i = 0; i < N; ++i) {
+    process(i);
+    #pragma omp ordered
+    {
+        printf("Iteration %d done in order\n", i);
+    }
+  }
+  ```
+  Сообщения будут выведены в порядке возрастания i, несмотря на параллельную обработку.
+
 
 For data environment:
 - `threadprivate` 	Specifies that a variable is private to a thread.
