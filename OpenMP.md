@@ -113,22 +113,49 @@ int main(){
 Задача: Возведение всех элементов массива в квадрат
 
 ```cpp
-    int* a = new int[N];
+#include <omp.h>
+#include <iostream>
+#include <format>
+
+using namespace std;
+
+int main(){
     
-    // ...
+    const size_t N = 1'000'000;
+    int * a = new int [N];
+
+    for (size_t i = 0; i< N; i++) a[i] = rand();
+
+    int n_threads = 4;                  // количество потоков  
+    omp_set_num_threads( n_threads );   // задание числа потоков для || блока кода #pragma omp parallel
     
-    int nthreads = 4;       
-    omp_set_num_threads( nthreads );        // задание числа потоков для || блока кода
+    size_t batch_size = N / n_threads;            // минимальынй размер порции данных, которую должен обработать поток
+    // данные могут не поделиться на одинаковые порции, поэтому считаем остаток. 
+    size_t rem = N % n_threads;     
+    // потом остаток распределим по 1 между первыми потоками
+    // некоторым потоком 1 не достанется, т.к. остаток всегда меньше делителя (числа потоков)
+    
+    cout << format("batch_size = {}\n", batch_size);
+    cout << format("remainder =  {}\n", rem);
+    
+
     #pragma omp parallel
     {   
-        int nth = omp_get_thread_num();     // получение номера потока
-        for (size_t i = nth;  i<N;  i+=nthreads)
+        int nth = omp_get_thread_num();     // получение номера потока, нумерация начиняется с нуля
+
+        size_t start = nth*batch_size +   ( (nth < rem)? nth:rem );     // индекс начала блока массива для обработки
+        size_t end = start + batch_size + ( (nth < rem)? 1:  0 );       // индекс конца блока массива, не включительно
+        
+        // для наглядности примера выведем диапазоны блоков массива для каждого потока
+        // critacal - создаёт критическую секцию
+        #pragma omp critical
+              cout<<format("{}: start = [{:7}, end={:7})\n", nth, start, end);
+
+        for (size_t i = start;  i<end;  i++){
             a[i] = a[i]*a[i];
+        }
     }
-    // поток 0 будет обрабатывать элементы с индексами 0, 4, 8 и т.д.
-    // поток 1 будет обрабатывать элементы с индексами 1, 5, 9 и т.д.
-    // поток 2 будет обрабатывать элементы с индексами 2, 6, 10 и т.д.
-    // поток 3 будет обрабатывать элементы с индексами 3, 7, 11 и т.д.
+}
 ```
 
 #### Общие и локальные переменные для потоков
