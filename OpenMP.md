@@ -33,7 +33,7 @@ OpenMP состоит из трёх компонентов:
 - переменные среды окружения (можно задавать в командной строке)\
    например.
    windows: `set OMP_NUM_THREADS = 8`\
-   linux: `export OMP_NUM_THREADS = 8`
+   linux: `export OMP_NUM_THREADS=8`
 - вспомогательные (библиотечные) функции; описаны в omp.h
 
 
