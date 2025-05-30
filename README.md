@@ -1,7 +1,9 @@
 # ProcessCalculus
-Параллельное программирвоание и теория вычислительных процессов
+Параллельное программирование и теория вычислительных процессов
 
-#### [Курс 2024](plans/2024/plan.md)
+#### Задания: [tasks/readme.md](tasks/readme.md)
+
+#### [Курс 2024, 2025](plans/2024/plan.md)
 
 #### [Заочное. Курс 2024](plans/2024/plan-distance.md)
 
@@ -21,7 +23,7 @@
     1. Некоторые примеры моделирования с помощью сетей Петри. простой процесс, одноканальная СМО, моделирование выполнения циклической программы.
     1. Анализ сети Петри. Свойства сетей Петри. Задача достижимости. Матричный способ решения задачи достижимости. Матрица инцидентности.
 1. Параллельное программирование. [ [Computer Science Center -- Курс "Параллельное программирование"](https://compscicenter.ru/courses/hp-course/2016-spring/classes/) ]
-    1. Процессы и потоки. Синхронизация потоков. Проблемы синронизации., [ [PC. lec. parallel.pdf](https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC.%20lec.%20parallel.pdf),  [ll2.md](ll2.md), [4](https://compscicenter.ru/courses/hp-course/2016-spring/classes/) ]
+    1. Процессы и потоки. Синхронизация потоков. Проблемы синхронизации., [ [PC. lec. parallel.pdf](https://raw.githubusercontent.com/ivtipm/ProcessCalculus/master/PC.%20lec.%20parallel.pdf),  [ll2.md](ll2.md), [4](https://compscicenter.ru/courses/hp-course/2016-spring/classes/) ]
     1. [OpenMP](OpenMP.md)
     1. [MPI](MPI.md)
     2. [MapReduce](MapReduce.md)
@@ -48,7 +50,7 @@
 
 1. [Сладйы лекций](https://cc.dvo.ru/uchebnaya-literatura.html) -- Голенков Е.А., Харитонов Д.И., Тарасов Г.В., Парахин Р.В. Курс лекций «Теория вычислительных процессов и структур»
 
-1. [Computer Science Center -- Курс "Пареллельное программирование"](https://compscicenter.ru/courses/hp-course/2016-spring/classes/)
+1. [Computer Science Center -- Курс "Параллельное программирование"](https://compscicenter.ru/courses/hp-course/2016-spring/classes/)
 - [Симуляция сети Петри](http://petri.hp102.ru/pnet.html)
 - [Построение и анализ сетей Петри](https://apo.adrian-jagusch.de/#/Sample%20Net)
 - [Онлайн-доска](https://webwhiteboard.com/)
