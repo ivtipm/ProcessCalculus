@@ -21,7 +21,11 @@ async def c3():
     print("c3 completed")
 
 
-async def main():
+async def main1():
+    await asyncio.gather( c1(), c2(), c3())     # поставить корутины в очередь на выполнение и начать выполнять
+
+
+async def main2():
     asyncio.create_task( c1() )
     # syncio.create_task - добавление задачи в цикл обработки событий
     asyncio.create_task( c2() )
@@ -29,6 +33,6 @@ async def main():
 
 
 start = time.time()
-asyncio.run( main() )       # запуск цикл обработки событий (event loop) и главную функцию с корутинами
+asyncio.run( main1() )       # запуск цикл обработки событий (event loop) и главную функцию с корутинами
 # asyncio.run - блокирующая функция, но вызовы корутин внутри будут не блокирующими
 print(f"Время выполнения кода: {time.time() - start:.0f} секунды")
