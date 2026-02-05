@@ -28,7 +28,7 @@ namespace Csharp_async
         /// <summary>
         /// Вычисляет число Пи
         /// </summary>
-        /// <param name="upd_progress">Функция обратого вызова (callback), вызывается каждые 10% итераций</param>
+        /// <param name="upd_progress">Функция обратного вызова (callback), вызывается каждые 10% итераций</param>
         /// <returns>число Пи</returns>
         public double calc(StepCallback upd_progress) {
             stop = false;

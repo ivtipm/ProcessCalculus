@@ -7,11 +7,12 @@ import javafx.scene.input.MouseEvent;
 
 import static java.lang.Math.sin;
 
+
 public class MainWindowController {
 
     @FXML Label status_label;
 
-    private static int N = 100_000_000;
+    private static int N = 500_000_000;
     private Worker w = new Worker(N);
 
 
@@ -22,7 +23,6 @@ public class MainWindowController {
         }
 
         return result; }
-
 
     public void run_here(MouseEvent mouseEvent) {
         status_label.setText( "Вычисление...");   // это пользователь не увидит
@@ -46,7 +46,8 @@ public class MainWindowController {
                     note = "(stoped)";
                 status_label.setText( "Sum = " + res + " " + note);
             });
-        }).start();
+
+        } ).start();
     }
 
     public void stop(MouseEvent mouseEvent) {
