@@ -1,3 +1,6 @@
+"""
+Неправильный пример использования асинхронных функций
+"""
 import asyncio
 import time
 from random import random
