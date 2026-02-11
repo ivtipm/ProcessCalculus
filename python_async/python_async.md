@@ -91,13 +91,15 @@ async def main():
     print("Результаты:", results)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run( main() )
 ```
 
 ## Функции
 
+- `asyncio.run( coroutine_call() )` – запуск цикла обработки сообщений и выполнение в нём `coroutine_call()`
+-
 - `asyncio.sleep( seconds )` – асинхронная зедержка
-- `asyncio.run( coroutine_call() )` – запуск нового цикла обработки сообщений и выполнение в нём `coroutine_call()`
+
 - `asyncio.create_task( ) -> Task` – добавление задачи в очередь задач (event loop)
 
 # Ссылки
