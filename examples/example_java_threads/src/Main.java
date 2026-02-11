@@ -9,7 +9,7 @@ import java.util.concurrent.*;  // Для запуска функции возв
 public class Main {
 
 
-    private static int n = 10_000_000;
+    private static int n = 130_000_000;
 
 
     // функция для выполнения в потоке
@@ -38,21 +38,25 @@ public class Main {
 
     // Пример 1. Простое создание потока и ожидание его завершения
     private static void example1(){
+
         // Объект для выполнения функция в отдельном потоке
         // Функция должна быть обёрнута в класс Runnable
-        Thread th1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                foo(n,'.');
-            }
-        });
+//        Thread th1 = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                foo(n,'.');
+//            }
+//        });
 
-        Thread th2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                foo(n,'-');
-            }
-        });
+        Thread th1 = new Thread( () -> { foo(n,'.'); } );
+        Thread th2 = new Thread( () -> { foo(n,'-'); } );
+
+//        Thread th2 = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                foo(n,'-');
+//            }
+//        });
 
         // Запуск потоков
         th1.start();
@@ -100,10 +104,10 @@ public class Main {
     public static void main(String[] args) {
 
         // Простой запуск потоков
-//        example1();
+        example1();
 
         // Запуск потока с возвратом значения
-        example2();
+//        example2();
 
         // Аналогичную примеру 2 работу можно было реализовать:
         // 1. создав потомка от класса Thread
