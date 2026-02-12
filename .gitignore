@@ -6,6 +6,7 @@ build-*-Debug
 build-*-Release
 
 .idea*
+.vscode/
 
 lab.*
 lab/

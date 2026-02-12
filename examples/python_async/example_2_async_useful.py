@@ -13,7 +13,7 @@ async def print_iss_position():
     with httpx.AsyncClient() as client:
     res = await client.get(URL, timeout=30)      # неблокирующий запрос
     # в этом месте функция main может быть приостановлена на время ожидания запроса; она продолжит выполняться тогда, когда будет завершено ожидание get и получен ответ
-    await client.aclose()   # закрытие соединения и освобождение ресурсов; тоже может быть сранительно долгим
+    await client.aclose()   # закрытие соединения и освобождение ресурсов; тоже может быть сравнительно долгим
     if res.status_code == 200 :
         print("Ответ:")
         print(res.text)
@@ -30,7 +30,7 @@ async def print_dots():
 
 async def main():
     print("Отправка запроса и ожидание ответа")
-    # create_task добавляет корутину в очередь на выполенение
+    # create_task добавляет корутину в очередь на выполнение
     task1 = asyncio.create_task( print_iss_position() )
     task2 = asyncio.create_task( print_dots() )
 
@@ -46,7 +46,7 @@ async def main():
 asyncio.run( main() )
 
 # пока print_iss_position будет приостановлена (неблокирующие ожидание ответа сервера), могут выполняться другие функции
-# но в этом примере нет никаких друих функций :(
+# но в этом примере нет никаких других функций :(
 
 """
 https://github.com/public-apis/public-apis
