@@ -14,11 +14,15 @@
 Синхронный код (блокирующий) без функции обратного вызова.
 ```py
 def download_file(url):
+    """ Download file from url and return it's content. """
     data = requests.get(url)  # ЖДЁМ здесь
     return data
 
+
 result = download_file("example.com")
 print(result)  # Выполнится только после загрузки
+
+
 for i in range(101):
     sleep(0.05)
     c = '.' if i%10 != 0 else '|'
