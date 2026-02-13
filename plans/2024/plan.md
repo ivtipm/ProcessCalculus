@@ -209,14 +209,14 @@ Python
 февраль 14
 - Повторение
 - Кортежи. Операции распаковки. Функции, документация, передача аргументов по ссылке и по значению, возврат значений. Анонимные функции. Модули.
-- примеры и материалы: https://miro.com/app/board/uXjVORmoCO0=/?invite_link_id=993701359201
+- примеры и материалы: https://miro.com/app/board/uXjVNQC1rq8=/
 
 
 # Лекция 1. Введение в Python
 - Python. Особенности. Типы данных. Операторы
 - Файлы со слайдами 1-5:
     - https://github.com/VetrovSV/Programming
-- примеры и материалы: [miro.com/app/board/uXjVORmoCO0](https://miro.com/app/board/uXjVNQC1rq8)
+- примеры и материалы: https://miro.com/app/board/uXjVNQC1rq8=/
 
 
 ## Практика 1
