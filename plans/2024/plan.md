@@ -216,7 +216,7 @@ Python
 - Python. Особенности. Типы данных. Операторы
 - Файлы со слайдами 1-5:
     - https://github.com/VetrovSV/Programming
-- примеры и материалы: https://miro.com/app/board/uXjVORmoCO0=/?invite_link_id=993701359201
+- примеры и материалы: [miro.com/app/board/uXjVORmoCO0](https://miro.com/app/board/uXjVNQC1rq8)
 
 
 ## Практика 1
