@@ -3,7 +3,7 @@
 
 #### Задания: [tasks/readme.md](tasks/readme.md)
 
-#### [Курс 2024, 2025](plans/2024/plan.md)
+#### [Курс 2024, 2025, 2026](plans/2024/plan.md)
 
 #### [Заочное. Курс 2024](plans/2024/plan-distance.md)
 
@@ -14,7 +14,7 @@
 #### [Курс 2021](plans/2021/plan.md)
 
 ### Примерная структура курса
-0. Введение в Pyhton [https://github.com/VetrovSV/Programming]
+0. Введение в Python [https://github.com/VetrovSV/Programming]
 1. Верификация программ и контрактное программирование [PC_lec1.verifacation.pdf](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec1.verifacation.pdf).
 1. Стандартные схемы программ (https://cc.dvo.ru/docs/lectures-tvps/lecture02.pdf)
 1. Сети Петри [1,2]
@@ -38,7 +38,7 @@
 
 - Синхронизация с помощью ***мьютексов*** на примере потоков в С++ [examples/thread-sync1](https://github.com/ivtipm/ProcessCalculus/tree/master/examples/thread-sync1)
 
-- Синхронизация с помощью ***условных переменных (condation variables)*** на примере потоков в С++ [examples/condition_variables](https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables)
+- Синхронизация с помощью ***условных переменных (condition variables)*** на примере потоков в С++ [examples/condition_variables](https://github.com/ivtipm/ProcessCalculus/blob/master/examples/condition_variables)
 
 [ещё примеры](https://github.com/ivtipm/ProcessCalculus/tree/master/examples)
 
@@ -48,7 +48,7 @@
 
 1. Теория вычислительных процессов, методическое пособие, В. Т. Калайда, 2007 г, 130 с.
 
-1. [Сладйы лекций](https://cc.dvo.ru/uchebnaya-literatura.html) -- Голенков Е.А., Харитонов Д.И., Тарасов Г.В., Парахин Р.В. Курс лекций «Теория вычислительных процессов и структур»
+1. [Слайды лекций](https://cc.dvo.ru/uchebnaya-literatura.html) -- Голенков Е.А., Харитонов Д.И., Тарасов Г.В., Парахин Р.В. Курс лекций «Теория вычислительных процессов и структур»
 
 1. [Computer Science Center -- Курс "Параллельное программирование"](https://compscicenter.ru/courses/hp-course/2016-spring/classes/)
 - [Симуляция сети Петри](http://petri.hp102.ru/pnet.html)

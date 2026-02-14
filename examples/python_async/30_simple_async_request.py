@@ -1,3 +1,7 @@
+"""
+Примитивный пример единичного асинхронного HTTP запроса
+"""
+
 import httpx    # аналог requests
 import asyncio
 
@@ -8,12 +12,12 @@ async def print_iss_position():
     client = httpx.AsyncClient()
     res = await client.get(URL, timeout=30)      # неблокирующий запрос
     # в этом месте функция main может быть приостановлена на время ожидания запроса; она продолжит выполняться тогда, когда будет завершено ожидание get и получен ответ
-    client.close()
     if res.status_code == 200 :
         print("Ответ:")
         print(res.text)
     else:
         print(f"Ststus code: {res.status_code}")
+    res.close()
 
 
 print("Отправка запроса и ожидание ответа")

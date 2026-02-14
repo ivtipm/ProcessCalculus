@@ -22,3 +22,6 @@ main-*
 .venv
 
 javafx-sdk-*/
+
+
+cspell.json

@@ -8,10 +8,11 @@ import asyncio
 
 # это корутина, не функция. Её можно запускать через цикл обработки сообщений
 async def print_iss_position():
+    """Получает координаты МКС"""
     URL = "http://api.open-notify.org/iss-now.json"
     # неблокирующий get реализован только как метод класса AsyncClient
-    with httpx.AsyncClient() as client:
-    res = await client.get(URL, timeout=30)      # неблокирующий запрос
+    async with httpx.AsyncClient() as client:
+        res = await client.get(URL, timeout=30)      # неблокирующий запрос
     # в этом месте функция main может быть приостановлена на время ожидания запроса; она продолжит выполняться тогда, когда будет завершено ожидание get и получен ответ
     await client.aclose()   # закрытие соединения и освобождение ресурсов; тоже может быть сравнительно долгим
     if res.status_code == 200 :
@@ -22,6 +23,9 @@ async def print_iss_position():
 
 
 async def print_dots():
+    """
+    Импровизированный прогрессбар
+    """
     for i in range(101):
         c = '.' if i%10 != 0 else '|'
         print(c, end="", flush=True)
