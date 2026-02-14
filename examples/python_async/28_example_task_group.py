@@ -40,18 +40,13 @@ async def c3():
 
 async def main_await_results():
     """первый пример запуска корутин c ожиданием через результат"""
-    t1 = asyncio.create_task( c1() )
-    t2 = asyncio.create_task( c2() )
-    t3 = asyncio.create_task( c3() )
-
-    # здесь будет напечатан _GatheringFuture без результата (с состоянием pending), т.к. к этому моменту функции не успеют вернуть результат
-    print("t1 ", end=""); print(t1)     # <Task pending name='Task-2' coro=<c1() running
-    await t1
-    await t2
-    await t3
-    print("t1 ", end=""); print(t1)                 # Task finished name='Task-2' coro=<c1() done
-    print(f"t1 result: {t1.result()}", end="")      # результат
-
+    async with asyncio.TaskGroup() as gr:
+        t1 = gr.create_task( c1() )
+        t2 = gr.create_task( c2() )
+        t3 = gr.create_task( c3() )
+        # на выходе контекстного менеджера будет автоматическое ожидание, await писать не нужно
+        # в отличии от предыдущих примеров, здесь при возникновении одного исключения будут остановлены все задачи
+    print( f"t1 result: {t1.result()}" )
 
 
 start = time.time()
