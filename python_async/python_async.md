@@ -118,7 +118,7 @@ if __name__ == "__main__":
     asyncio.run( main() )
 ```
 
-См. др. примеры в `examples\python_async`
+См. др. примеры в [`examples\python_async`]( ../../examples/process_python )
 
 ## Запуск сразу нескольких задач
 

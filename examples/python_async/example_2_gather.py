@@ -1,5 +1,10 @@
+"""
+
+"""
+
 import asyncio
 import time
+
 
 # async def - объявление корутину (сопрограммы), а не функции
 # корутины могут приостанавливать свою работу давая возможность выполняться другим корутинам
@@ -12,24 +17,26 @@ async def c1():
     print("c1 completed")
 
 
+# корутина
 async def c2():
     print("c2 started...")
     await asyncio.sleep(2)
     print("c2 completed")
 
 
+# корутина
 async def c3():
     print("c3 started...")
     await asyncio.sleep(3)
     print("c3 completed")
 
 
-async def main1():
+async def main_await_gather():
     """первый пример запуска корутин"""
     await asyncio.gather( c1(), c2(), c3())     # поставить корутины в очередь на выполнение и начать выполнять
 
 
-async def main2():
+async def main_create_await():
     """второй пример запуска корутин"""
     asyncio.create_task( c1() )
     # syncio.create_task - добавление задачи в цикл обработки событий
