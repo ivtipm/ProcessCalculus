@@ -13,7 +13,7 @@
 &nbsp;
 
 <br>
-    
+
 Пример: синхронные и асинхронные запросы
 
 <img src="http_sync_vs_async.png" width=1000 alt="HTTP запрос: синхронный и асинхронный">
@@ -118,9 +118,11 @@ if __name__ == "__main__":
     asyncio.run( main() )
 ```
 
-См. др. примеры в `examples\python_async`
+См. др. примеры в [`examples\python_async`]( ../../examples/process_python )
 
 ## Запуск сразу нескольких задач
+
+<img src="asyncio_run_scheme.excalidraw.png" width=700>
 
 ## Функции async
 
