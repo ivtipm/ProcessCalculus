@@ -5,7 +5,6 @@
 """
 
 from arrays import *
-import numpy
 
 def main():
     # n = int(input("n = "))
