@@ -143,6 +143,7 @@ Java:
 # Лекция 4.
 14 марта
 - CUDA на Python, через PyTorch в Google colaboratory
+-  [Асинхронное программирование на Python](https://github.com/ivtipm/ProcessCalculus/blob/master/python_async/python_async.md). GIL
 
 #### Задание. Бонус. Numpy + matplotlib + seaborn + pandas
 Python
