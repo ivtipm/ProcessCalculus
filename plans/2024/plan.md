@@ -106,7 +106,9 @@ Java:
 
 # Лекция 6. Параллельное программирование
 13 марта
-- Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
+- Введение в параллельное программирование: 
+  - https://docs.google.com/presentation/d/107OYvhe7pgSc3vmod7zP1xcAIAGmoikCqxQqiFTCLw4
+  - https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - Примеры использования потоков в C++: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread
 
 
