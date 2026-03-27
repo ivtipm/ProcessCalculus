@@ -114,8 +114,9 @@ Java:
 
 
 
-# Лекция 5. Параллельное программирование
-6 марта
+# Лекция 5. Python. Параллельное программирование
+- ООП в Питоне: https://github.com/VetrovSV/Programming/blob/master/oop.md
+- Менеджеры контекста: https://github.com/VetrovSV/Programming/blob/master/context_managers.md
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
 #### [Задание. Скрапер](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/scraper.md)
@@ -143,7 +144,6 @@ Java:
 Адрес сервера см. в дискорде.
 
 # Лекция 4.
-14 марта
 - CUDA на Python, через PyTorch в Google colaboratory
 -  [Асинхронное программирование на Python](https://github.com/ivtipm/ProcessCalculus/blob/master/python_async/python_async.md). GIL
 
@@ -189,6 +189,7 @@ Python
 О PyTorch: https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi?usp=sharing
 
 См. также библиотеку Python asyncio для асинхронного программирования.
+
 
 #### Задание (бонус). CMD UI
 Создайте версию программы 5 с командным интерфейсом. Программа должна принимать набор чисел как аргумент программы при запуске.
