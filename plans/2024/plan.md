@@ -96,7 +96,8 @@ Java:
 
 
 # Лекция 7. Параллельное программирование
-20 марта
+- Java: SAM (Single Abstract Method) - https://github.com/ivtipm/BigDataLanguages/blob/main/Java/SAM.md
+- Java Threads and Threads Pools: https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads 
 - Ошибки параллельного программирования. https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - Примеры использования потоков в C++ и Qt: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_qthread
 - Примеры использования потоков в Java: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_threads
