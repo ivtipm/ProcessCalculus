@@ -2,3 +2,7 @@
 misc.xml
 vcs.xml
 workspace.xml
+
+Makefile
+*.o
+Desktop-Debug/
