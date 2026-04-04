@@ -61,7 +61,7 @@ https://github.com/ivtipm/ProcessCalculus/blob/master/MPI.md
 
 
 #### Домашнее задание. OpenMP
-1. Создайте параллельный алгоритм для решения одной или нескольких задач из первого домашнего задания (задачи номерами 5-8). Используйте OpenMP и распараллеливание циклов.
+1. Создайте параллельный алгоритм для решения одной или нескольких задач на циклы или массивы. Используйте OpenMP и распараллеливание циклов.
 2. Решите произвольную задачу используя библиотеку OpenMP
 
 
@@ -96,7 +96,8 @@ Java:
 
 
 # Лекция 7. Параллельное программирование
-20 марта
+- Java: SAM (Single Abstract Method) - https://github.com/ivtipm/BigDataLanguages/blob/main/Java/SAM.md
+- Java Threads and Threads Pools: https://github.com/ivtipm/BigDataLanguages/tree/main/Java/Threads 
 - Ошибки параллельного программирования. https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - Примеры использования потоков в C++ и Qt: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_qthread
 - Примеры использования потоков в Java: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_threads
@@ -106,14 +107,17 @@ Java:
 
 # Лекция 6. Параллельное программирование
 13 марта
-- Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
+- Введение в параллельное программирование: 
+  - https://docs.google.com/presentation/d/107OYvhe7pgSc3vmod7zP1xcAIAGmoikCqxQqiFTCLw4
+  - https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - Примеры использования потоков в C++: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread
 
 
 
 
-# Лекция 5. Параллельное программирование
-6 марта
+# Лекция 5. Python. Параллельное программирование
+- ООП в Питоне: https://github.com/VetrovSV/Programming/blob/master/oop.md
+- Менеджеры контекста: https://github.com/VetrovSV/Programming/blob/master/context_managers.md
 - Введение в параллельное программирование: https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 
 #### [Задание. Скрапер](https://github.com/ivtipm/ProcessCalculus/blob/master/plans/tasks/scraper.md)
@@ -141,8 +145,8 @@ Java:
 Адрес сервера см. в дискорде.
 
 # Лекция 4.
-14 марта
 - CUDA на Python, через PyTorch в Google colaboratory
+-  [Асинхронное программирование на Python](https://github.com/ivtipm/ProcessCalculus/blob/master/python_async/python_async.md). GIL
 
 #### Задание. Бонус. Numpy + matplotlib + seaborn + pandas
 Python
@@ -167,12 +171,12 @@ Python
 Создайте версию программы [139](https://ivtipm.github.io/Programming/Glava06/index06.htm#z139) с использованием функции-генератора (используя yield).
 
 
-#### Задание. Полносвязная нейросеть для задачи классификации (бонус)
-Решите задачу классификации с помощью полносвязной нейросети, созданной с помощью фреимворка Keras.
+#### ~~Задание. Полносвязная нейросеть для задачи классификации (бонус)~~
+~~Решите задачу классификации с помощью полносвязной нейросети, созданной с помощью фреимворка Keras.~~
 
-Для обучения используйте параллельные вычисления на GPU, на основе CUDA.
+~~Для обучения используйте параллельные вычисления на GPU, на основе CUDA.~~
 
-Шаблон кода: https://colab.research.google.com/drive/1josHsquNFQH1cfu2jyeFfzQw4c5uTaqG?usp=sharing
+~~Шаблон кода: https://colab.research.google.com/drive/1josHsquNFQH1cfu2jyeFfzQw4c5uTaqG?usp=sharing~~
 
 
 #### Задание. List vs NumPy vs Torch
@@ -186,6 +190,7 @@ Python
 О PyTorch: https://colab.research.google.com/drive/1_5JVzwKej5hCe8I_bHfFYC0y8CrjfhJi?usp=sharing
 
 См. также библиотеку Python asyncio для асинхронного программирования.
+
 
 #### Задание (бонус). CMD UI
 Создайте версию программы 5 с командным интерфейсом. Программа должна принимать набор чисел как аргумент программы при запуске.
@@ -225,6 +230,7 @@ Python
 
 1. Задачи на Python
 Задачник — https://ivtipm.github.io/Programming/Files/spisocall.htm
+    - Таблица с заданиями: https://github.com/ivtipm/ProcessCalculus/blob/master/tasks/readme.md
     - Все алгоритмы (поиск элемента в последовательности, сортировка, нахождения минимума и максимума и т.п.) требуется реализовывать самостоятельно.
     - Помните про свойство *массовости* алгоритма, создавайте код который решает задачу для разных значений входных данных, а не только для тех, которые указаны в условии задачи.
     - Для задач 5-8 создайте отдельные модули (или один) с набором функций. Напишите тесты для функций (утверждения assert для сравнения результатов работы функций с заранее вычисленными, корректными значениями). Используйте фреимворки для модульного тестирования при желании, но обязательно приведите пример использования оператора assert.

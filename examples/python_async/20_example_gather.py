@@ -36,7 +36,7 @@ async def c3():
 
 async def main_await_gather():
     """первый пример запуска корутин"""
-    await asyncio.gather( c1(), c2(), c3())     # поставить корутины в очередь на выполнение и начать выполнять
+    await asyncio.gather( c1(), c2(), c3() )     # поставить корутины в очередь на выполнение и начать выполнять
 
 
 start = time.time()
