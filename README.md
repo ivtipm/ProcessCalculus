@@ -15,8 +15,8 @@
 
 ### Примерная структура курса
 0. Введение в Python [https://github.com/VetrovSV/Programming]
-1. Верификация программ и контрактное программирование [PC_lec1.verifacation.pdf](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec1.verifacation.pdf).
-1. Стандартные схемы программ (https://cc.dvo.ru/docs/lectures-tvps/lecture02.pdf)
+1. ~~Верификация программ и контрактное программирование [PC_lec1.verifacation.pdf](https://github.com/ivtipm/ProcessCalculus/blob/master/PC_lec1.verifacation.pdf).~~
+1. ~~Стандартные схемы программ (https://cc.dvo.ru/docs/lectures-tvps/lecture02.pdf)~~
 1. Сети Петри [1,2]
     1. Идея сети Петри. Позиция, переходы, входная и выходная функции.
     1. Маркировка и выполнение сети Петри. Диаграмма переходов.
@@ -27,7 +27,7 @@
     1. [OpenMP](OpenMP.md)
     1. [MPI](MPI.md)
     2. [MapReduce](MapReduce.md)
-    3. CUDA через pyTorch https://colab.research.google.com/drive/1qm3deqBHBP2gqRQ-WioyIiYD0I7scnhB?usp=sharing
+    3. CUDA через pyTorch https://colab.research.google.com/drive/1qm3deqBHBP2gqRQ-WioyIiYD0I7scnhB
 
 ## Примеры
 - Потоки в C++: создание потоков, передача параметров по ссылке, возвращение значение из потока, callback функции [examples/example_thread](https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_thread)
