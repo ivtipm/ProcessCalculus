@@ -12,7 +12,7 @@
 #include <math.h>
 #include <iostream>
 
-#include <thread>  // ещё нужно подключить скомпилированый код библиотеки. см. pro файл: LIBS += -lpthread
+#include <thread>  // ещё нужно подключить скомпилированный код библиотеки. см. pro файл: LIBS += -lpthread
 #include <future>
 
 // для передачи функции как параметра
@@ -47,7 +47,7 @@ void bar_not_safe1(unsigned long long n, double &sum){
 
     unsigned long long d = n/10;
     for (unsigned long long i = 0; i<n; i++){
-        sum += sin(i);                                                                                 // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
+        sum += sin(i);                                                                                 // если несколько потоков используют переменную sum. возникает неопределённость параллелизма
         if (i%d==0) {cout << '*';
             cout << flush;}}
 }
@@ -56,7 +56,7 @@ void bar_not_safe1(unsigned long long n, double &sum){
 void bar_not_safe2(unsigned long long n, unsigned long long &sum){
     unsigned long long d = n/10;
     for (unsigned long long i = 0; i<n; i++){
-        sum = sum+1;}                                                                                     // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
+        sum = sum+1;}                                                                                     // если несколько потоков используют переменную sum. возникает неопределённость параллелизма
 }
 
 
