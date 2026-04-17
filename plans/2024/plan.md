@@ -101,7 +101,6 @@ Java:
 - Ошибки параллельного программирования. https://github.com/ivtipm/ProcessCalculus/raw/master/PC.%20lec.%20parallel.pdf
 - Примеры использования потоков в C++ и Qt: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_qthread
 - Примеры использования потоков в Java: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_threads
-- Примеры использования потоков в Java и JavaFX: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/example_java_thread-gui
 - Примеры использования потоков в С#, асинхронные методы: https://github.com/ivtipm/ProcessCalculus/tree/master/examples/Csharp_async
 
 
