@@ -12,13 +12,15 @@
 #include <math.h>
 #include <iostream>
 
-#include <thread>  // ещё нужно подключить скомпилированный код библиотеки. см. pro файл: LIBS += -lpthread
+#include <thread>  // ещё нужно подключить скомпилированый код библиотеки. см. pro файл: LIBS += -lpthread
 #include <future>
 
 // для передачи функции как параметра
 #include <functional>
 
 #include <chrono>
+
+#include <format>
 
 // для использования std::thread нужно дополнительно указать
 // что к проекту должна быть присоединена библиотека pthread
@@ -56,7 +58,7 @@ void bar_not_safe1(unsigned long long n, double &sum){
 void bar_not_safe2(unsigned long long n, unsigned long long &sum){
     unsigned long long d = n/10;
     for (unsigned long long i = 0; i<n; i++){
-        sum = sum+1;}                                                                                     // если несколько потоков используют переменную sum. возникает неопределённость параллелизма
+        sum = sum+1;}                                                                                     // если несколько потоков используют переменную sum. возникает неопределённость пареллелизма
 }
 
 
@@ -206,7 +208,9 @@ void example3_1(){
 // функция потока, которая вызывает другую функцию после завершения основной работы
 // в основном потоке больше не нужно ждать пока эта функция завершит вычисления, чтобы показать данные
 // вместо этого функция потока сама покажет данные, пока основной поток занят другими действиями
-void bar2(unsigned n, void(*callback)(float s)  ){
+using FuncVoid_Float = void(*)(float s);
+
+void bar2(unsigned n, function<void(float)> callback  ){
     // указатель на функцию можно передавать и через класс-обёртку std::function
     float sum = 0;
     for (unsigned i = 0; i<n; i++)
@@ -229,11 +233,13 @@ void example4(){
     // при этом не дожидаясь завершения этого нового потока в основном (не использую join)
     // то в функцию можно передать адрес другой функции, которая и выполнит необходимые действия
     unsigned n = 1000;
-    std::thread th(bar2, n, bar2_done);
+    std::thread th1(bar2, n, [](float s)->void{cout << format("sum = {:.2f}\n", s); } );
+    std::thread th2(bar2, n, [](float s)->void{cout << format("S = {}\n", s); } );
 
     // здесь вызывается join только для того,
     // чтобы основной поток не завершился раньше вновь созданного
-    th.join();
+    th1.join();
+    th2.join();
 }
 
 
